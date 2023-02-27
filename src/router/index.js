@@ -6,7 +6,6 @@ import Scores from '@/views/Scores.vue'
 import Colors from '@/views/Colors.vue'
 
 
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [

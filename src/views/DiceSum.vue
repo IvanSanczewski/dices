@@ -32,14 +32,19 @@
 
         <div>--------------</div>
 
-        <div v-for="item in storeDices.plays" :key="item.index" class="sums">
+        <div v-for="play in storeDices.plays" :key="play.index"> Play {{ storeDices.plays[index] }} {{ play.join(' + ') }}
+
+        </div>
+
+
+        <!-- <div v-for="item in storeDices.plays" :key="item.index" class="sums"> Play 1:
             <span> {{ item[0] }} + </span>
             <span> {{ item[1] }} + </span>
             <span> {{ item[2] }} + </span>
             <span> {{ item[3] }} + </span>
             <span> {{ item[4] }} + </span>
             <span> {{ item[5] }} = </span>
-        </div>
+        </div> -->
 
 
     </div>
@@ -50,4 +55,4 @@ import { useDicesStore } from '@/stores/dices'
 
 const storeDices = useDicesStore()
 
-</script>   
+</script>
