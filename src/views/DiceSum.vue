@@ -28,7 +28,19 @@
             <span>{{ item }}</span>
         </div>
         <button @click="storeDices.deleteDice">Delete last dice</button>
-        <button v-if="storeDices.sumReady" @click="storeDices.startGame">START</button>
+        <button v-if="storeDices.sumReady" @click="storeDices.startGame">Roll dices</button>
+
+        <div>--------------</div>
+
+        <div v-for="item in storeDices.plays" :key="item.index" class="sums">
+            <span> {{ item[0] }} + </span>
+            <span> {{ item[1] }} + </span>
+            <span> {{ item[2] }} + </span>
+            <span> {{ item[3] }} + </span>
+            <span> {{ item[4] }} + </span>
+            <span> {{ item[5] }} = </span>
+        </div>
+
 
     </div>
 </template>
