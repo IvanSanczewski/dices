@@ -28,25 +28,17 @@
             <span>{{ item }}</span>
         </div>
         <button @click="storeDices.deleteDice">Delete last dice</button>
-        <button v-if="storeDices.sumReady" @click="storeDices.startGame">Roll dices</button>
+        <button v-if="storeDices.sumReady" @click="storeDices.rollDices">Roll dices</button>
 
         <div>--------------</div>
 
-        <div v-for="play in storeDices.plays" :key="play.index"> Play {{ storeDices.plays[index] }} {{ play.join(' + ') }}
-
+        <div v-for="play, index in storeDices.plays" :key="play.index"> 
+            Play {{ index + 1 }} :{{ play.join(' + ') }} =
+            <form @submit.prevent="storeDices.sumVsResult(storeDices.userSum[index], storeDices.playsTotal[index])">
+                <input type="number" v-model="storeDices.userSum[index]">
+                <button>send</button>
+            </form>
         </div>
-
-
-        <!-- <div v-for="item in storeDices.plays" :key="item.index" class="sums"> Play 1:
-            <span> {{ item[0] }} + </span>
-            <span> {{ item[1] }} + </span>
-            <span> {{ item[2] }} + </span>
-            <span> {{ item[3] }} + </span>
-            <span> {{ item[4] }} + </span>
-            <span> {{ item[5] }} = </span>
-        </div> -->
-
-
     </div>
 </template>
 

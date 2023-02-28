@@ -2,13 +2,22 @@ import { defineStore } from 'pinia'
 
 export const useDicesStore = defineStore('dices', {
     state: () => ({
+        // game settings
         totalDices: 0,
         dicesSet: [],
+        sumReady: false,
+
+        // rolling dices
         dice: null,
         diceResult: null,
-        sumReady: false,
         plays:[],
-        play:[]
+        play:[],
+
+        // answers
+        playsTotal:[],
+        playActual: 0,
+        userSum:[]
+        
     }),
 
     getters: {
@@ -22,52 +31,72 @@ export const useDicesStore = defineStore('dices', {
 
     actions: {
         dicesCount(value) {
-            console.log(value)
             this.totalDices = value
         },
   
         addDice(value) {
             if (this.dicesSet.length < this.totalDices) {
-                console.log(value)
                 this.dicesSet.push(value)
             } 
+            //TODO: CALL shuffleSet() TO RANDOMLY DISPLAY THE SET
         },
 
         deleteDice() {
             this.dicesSet.pop()
+            //TODO: DELETE ANY DICE FROM THE SET
         },
 
-        startGame() {
+        rollDices() {
+            this.plays = []
             for (let i = 0; i < 10 ; i++) {
                 this.dicesSet.map(dice => {
                     //TODO: IMPLEMENT AN OBJECT TO PASS THE PROPER NUMBER AS A PARAMATER ACCORDING THE TYPE OF DICE
                     switch (dice) {
                         case 'tetrahedron':
-                            this.rollDice(4)
+                            this.rollOneDice(4)
                             break
                         case 'cube':
-                            this.rollDice(6)
+                            this.rollOneDice(6)
                             break
                         case 'decahedron':
-                            this.rollDice(10)
+                            this.rollOneDice(10)
                             break
                         case 'dodecahedron':
-                            this.rollDice(12)
+                            this.rollOneDice(12)
                             break
                         case 'icosahedron':
-                            this.rollDice(20)
+                            this.rollOneDice(20)
                             break
                     } 
                     this.play.push(this.diceResult)
+                    // console.log(this.play)
                 })
+                this.getPlayResult(this.play)
                 this.plays.push(this.play)
                 this.play = []
             }
         },
 
-        rollDice(sides) {
+        rollOneDice(sides) {
             this.diceResult = Math.floor(Math.random() * (sides)) + 1;
             // return Math.floor(Math.random() * (sides)) + 1
+        },
+
+        getPlayResult(play) { // SHOULD playActual BE A LOCAL VAR?
+            play.map(dice => this.playActual += dice)
+            this.playsTotal.push(this.playActual)
+            this.playActual = 0
+        },
+
+        sumVsResult(userSum, playsTotal) {
+            console.log(userSum, playsTotal)
+            let userPlayCorrect = (userSum === playsTotal) ? true : false
+            console.log(userPlayCorrect)
+
+            if(!userPlayCorrect) {
+                let difference = playsTotal - userSum
+                console.log(difference)
+            }
         }
     }
 })
