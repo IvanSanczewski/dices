@@ -4,19 +4,34 @@ export const useDicesStore = defineStore('dices', {
     state: () => ({
         // game settings
         totalDices: 0,
-        dicesSet: [],
         sumReady: false,
+        //dicesSet: [],
 
         // rolling dices
         dice: null,
-        diceResult: null,
-        plays:[],
+        //diceResult: null,
+        //plays:[],
         play:[],
+        dices: {
+            set: [],
+            plays: [],
+            playsTotal:[],
+            diceResult: null
+        },
 
-        // answers
-        playsTotal:[],
-        playActual: 0,
-        userSum:[]
+        // playsTotal:[],
+        //playActual: 0,
+        
+        // user answers
+        //userSum:[],
+        userPlay: {
+            firstName: '',
+            userId: '',
+            userSum:[],
+            userHihgScore:'',
+            userActualScore:'',
+
+        }
         
     }),
 
@@ -24,7 +39,7 @@ export const useDicesStore = defineStore('dices', {
         diceSetComplete: (state) => {
             if (state.totalDices != 0) {
                 return state.sumReady = 
-                    (state.dicesSet.length === state.totalDices) ? true : false
+                    (state.dices.set.length === state.totalDices) ? true : false
             }
         }
     },
@@ -35,22 +50,22 @@ export const useDicesStore = defineStore('dices', {
         },
   
         addDice(value) {
-            if (this.dicesSet.length < this.totalDices) {
-                this.dicesSet.push(value)
+            if (this.dices.set.length < this.totalDices) {
+                this.dices.set.push(value)
             } 
             //TODO: CALL shuffleSet() TO RANDOMLY DISPLAY THE SET
         },
 
         deleteDice() {
-            this.dicesSet.pop()
+            this.dices.set.pop()
             //TODO: DELETE ANY DICE FROM THE SET
         },
 
         rollDices() {
-            this.plays = []
-            this.userSum = []
+            this.dices.plays = []
+            this.userPlay.userSum = []
             for (let i = 0; i < 10 ; i++) {
-                this.dicesSet.map(dice => {
+                this.dices.set.map(dice => {
                     //TODO: IMPLEMENT AN OBJECT TO PASS THE PROPER NUMBER AS A PARAMATER ACCORDING THE TYPE OF DICE
                     switch (dice) {
                         case 'tetrahedron':
@@ -69,32 +84,31 @@ export const useDicesStore = defineStore('dices', {
                             this.rollOneDice(20)
                             break
                     } 
-                    this.play.push(this.diceResult)
-                    // console.log(this.play)
+                    this.play.push(this.dices.diceResult)
                 })
                 this.getPlayResult(this.play)
-                this.plays.push(this.play)
+                this.dices.plays.push(this.play)
                 this.play = []
             }
         },
 
         rollOneDice(sides) {
-            this.diceResult = Math.floor(Math.random() * (sides)) + 1;
+            this.dices.diceResult = Math.floor(Math.random() * (sides)) + 1;
             // return Math.floor(Math.random() * (sides)) + 1
         },
 
         getPlayResult(play) { // SHOULD playActual BE A LOCAL VAR?
-            play.map(dice => this.playActual += dice)
-            this.playsTotal.push(this.playActual)
-            this.playActual = 0
+            let playActual = 0
+            play.map(dice => playActual += dice)
+            this.dices.playsTotal.push(playActual)
         },
 
-        sumVsResult(userSum, playsTotal) {
-            let userPlayCorrect = (userSum === playsTotal) ? true : false
+        sumVsResult(userTotal, total) {
+            let userPlayCorrect = (userTotal === total) ? true : false
             console.log(userPlayCorrect)
 
             if(!userPlayCorrect) {
-                let difference = playsTotal - userSum
+                let difference = total - userTotal
                 console.log(difference)
             }
         }

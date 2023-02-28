@@ -24,7 +24,7 @@
         </form>
         <span>--------------</span>
         <p>Your dices: </p>
-        <div v-for="item in storeDices.dicesSet" :key="item">
+        <div v-for="item in storeDices.dices.set" :key="item">
             <span>{{ item }}</span>
         </div>
         <button @click="storeDices.deleteDice">Delete last dice</button>
@@ -32,16 +32,12 @@
 
         <div>--------------</div>
 
-        <div v-for="play, index in storeDices.plays" :key="play.index"> 
+        <div v-for="play, index in storeDices.dices.plays" :key="play.index"> 
             Play {{ index + 1 }} :{{ play.join(' + ') }} =
-            <!-- <form @submit.prevent="storeDices.sumVsResult(storeDices.userSum[index], storeDices.playsTotal[index])"> -->
-                <input 
-                @keyup.enter="storeDices.sumVsResult(storeDices.userSum[index], storeDices.playsTotal[index])" type="number" v-model="storeDices.userSum[index]">
-                <!-- <input @keyup.enter="items.push({id:items.length + 1, label: newItem})" type="text" v-model="newItem" placeholder = "Add an Item"> -->
-
-
-                <!-- <button>send</button> -->
-            <!-- </form> -->
+                <input
+                    @keyup.enter="storeDices.sumVsResult(storeDices.userPlay.userSum[index], storeDices.dices.playsTotal[index])"
+                    v-model="storeDices.userPlay.userSum[index]"
+                    type="number" >
         </div>
     </div>
 </template>
