@@ -48,6 +48,7 @@ export const useDicesStore = defineStore('dices', {
 
         rollDices() {
             this.plays = []
+            this.userSum = []
             for (let i = 0; i < 10 ; i++) {
                 this.dicesSet.map(dice => {
                     //TODO: IMPLEMENT AN OBJECT TO PASS THE PROPER NUMBER AS A PARAMATER ACCORDING THE TYPE OF DICE
@@ -89,7 +90,6 @@ export const useDicesStore = defineStore('dices', {
         },
 
         sumVsResult(userSum, playsTotal) {
-            console.log(userSum, playsTotal)
             let userPlayCorrect = (userSum === playsTotal) ? true : false
             console.log(userPlayCorrect)
 

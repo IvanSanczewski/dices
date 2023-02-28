@@ -34,10 +34,14 @@
 
         <div v-for="play, index in storeDices.plays" :key="play.index"> 
             Play {{ index + 1 }} :{{ play.join(' + ') }} =
-            <form @submit.prevent="storeDices.sumVsResult(storeDices.userSum[index], storeDices.playsTotal[index])">
-                <input type="number" v-model="storeDices.userSum[index]">
-                <button>send</button>
-            </form>
+            <!-- <form @submit.prevent="storeDices.sumVsResult(storeDices.userSum[index], storeDices.playsTotal[index])"> -->
+                <input 
+                @keyup.enter="storeDices.sumVsResult(storeDices.userSum[index], storeDices.playsTotal[index])" type="number" v-model="storeDices.userSum[index]">
+                <!-- <input @keyup.enter="items.push({id:items.length + 1, label: newItem})" type="text" v-model="newItem" placeholder = "Add an Item"> -->
+
+
+                <!-- <button>send</button> -->
+            <!-- </form> -->
         </div>
     </div>
 </template>
