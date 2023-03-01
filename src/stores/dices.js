@@ -5,12 +5,10 @@ export const useDicesStore = defineStore('dices', {
         // game settings
         totalDices: 0,
         sumReady: false,
-        //dicesSet: [],
+        diceType: null,
+
 
         // rolling dices
-        diceType: null,
-        //diceResult: null,
-        //plays:[],
         play:[],
         dices: {
             set: [],
@@ -18,19 +16,20 @@ export const useDicesStore = defineStore('dices', {
             playsTotal:[],
             diceResult: null
         },
-
-        // playsTotal:[],
-        //playActual: 0,
         
         // user answers
-        //userSum:[],
         userPlay: {
             firstName: '',
             userId: '',
             userSum: [],
             answered: [],
-            userHihgScore:'',
-            userActualScore:'',
+            isCorrect: [],
+            differencePenaltie: [],
+            hihgScore:'',
+            playScore:[],
+            actualScore:''
+
+
         }
     }),
 
@@ -105,16 +104,32 @@ export const useDicesStore = defineStore('dices', {
             this.dices.playsTotal.push(playActual)
         },
 
-        sumVsResult(userTotal, total, index) {
+        answerVsResult(userTotal, total, index) {
             console.log(userTotal, total, index)
             this.userPlay.answered[index] = true
-            let userPlayCorrect = (userTotal === total) ? true : false
-            console.log(userPlayCorrect)
+            this.userPlay.isCorrect = (userTotal === total) ? true : false
+            // let userPlayCorrect = (userTotal === total) ? true : false
+            console.log(this.userPlay.isCorrect)
+            // console.log(userPlayCorrect)
 
-            if(!userPlayCorrect) {
-                let difference = total - userTotal
-                console.log(difference)
+            // if(!userPlayCorrect) {
+            //     let difference = total - userTotal
+            //     console.log(difference)
+            // }
+            
+            if (!this.userPlay.isCorrect) {
+                this.userPlay.differencePenaltie = Math.abs(total - userTotal)
+                console.log(this.userPlay.differencePenaltie)
             }
+
+            if (index === 9) {
+                this.calculateScore()
+            }
+        },
+
+        calculateScore() {
+            let score
+            this.userPlay.isCorrect.map(item => console.log(item))
         }
 
 

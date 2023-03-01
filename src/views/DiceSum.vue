@@ -43,7 +43,7 @@
                 <!-- $event.target.parentElement.nextSibling.children[1].focus()" -->
                         <!-- , -->
                 <input @keyup.enter=" 
-                    storeDices.sumVsResult(storeDices.userPlay.userSum[index], storeDices.dices.playsTotal[index], index),
+                    storeDices.answerVsResult(storeDices.userPlay.userSum[index], storeDices.dices.playsTotal[index], index),
                     nextPlay(index)"
                     v-model="storeDices.userPlay.userSum[index]"
                     :class="{'filled' : storeDices.userPlay.answered[index]}"
@@ -75,7 +75,7 @@ const goToFirstPlay = () => {
         if (firstInput) {
             firstInput.focus()
         }
-    }, 1500)
+    }, 3000)
 }
 
 
