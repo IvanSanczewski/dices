@@ -8,7 +8,7 @@ export const useDicesStore = defineStore('dices', {
         //dicesSet: [],
 
         // rolling dices
-        dice: null,
+        diceType: null,
         //diceResult: null,
         //plays:[],
         play:[],
@@ -27,12 +27,11 @@ export const useDicesStore = defineStore('dices', {
         userPlay: {
             firstName: '',
             userId: '',
-            userSum:[],
+            userSum: [],
+            answered: [],
             userHihgScore:'',
             userActualScore:'',
-
         }
-        
     }),
 
     getters: {
@@ -50,6 +49,7 @@ export const useDicesStore = defineStore('dices', {
         },
   
         addDice(value) {
+            console.log(value)
             if (this.dices.set.length < this.totalDices) {
                 this.dices.set.push(value)
             } 
@@ -63,7 +63,9 @@ export const useDicesStore = defineStore('dices', {
 
         rollDices() {
             this.dices.plays = []
+            this.dices.playsTotal = []
             this.userPlay.userSum = []
+            this.userPlay.answered = []
             for (let i = 0; i < 10 ; i++) {
                 this.dices.set.map(dice => {
                     //TODO: IMPLEMENT AN OBJECT TO PASS THE PROPER NUMBER AS A PARAMATER ACCORDING THE TYPE OF DICE
@@ -103,7 +105,9 @@ export const useDicesStore = defineStore('dices', {
             this.dices.playsTotal.push(playActual)
         },
 
-        sumVsResult(userTotal, total) {
+        sumVsResult(userTotal, total, index) {
+            console.log(userTotal, total, index)
+            this.userPlay.answered[index] = true
             let userPlayCorrect = (userTotal === total) ? true : false
             console.log(userPlayCorrect)
 
@@ -112,5 +116,7 @@ export const useDicesStore = defineStore('dices', {
                 console.log(difference)
             }
         }
+
+
     }
 })
