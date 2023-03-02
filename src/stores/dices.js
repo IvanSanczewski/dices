@@ -30,7 +30,16 @@ export const useDicesStore = defineStore('dices', {
             hihgScore:'',
             playScore:[],
             actualScore:''
+        },
+
+        // scores
+
+        dicesScore: {
+            positive:{
+                
+            }
         }
+
     }),
 
     getters: {
@@ -128,9 +137,9 @@ export const useDicesStore = defineStore('dices', {
         calculateScore() {
             let score = 0
             this.userPlay.answersAreCorrect.map(item => {
-                score += item ? 10 : 0
-                console.log(score);
+                score += item ? this.dicesPositive( ) : this.dicesNegative()
             })
+            console.log(score);
 
         }
 

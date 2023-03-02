@@ -1,0 +1,41 @@
+.nav {
+    padding: 0 4em 0 4em;
+
+    color: whitesmoke;
+    background-color: rgb(12, 20, 12);
+
+    /* insert variables */
+    border-bottom: 1px solid whitesmoke;
+    
+    justify-content: space-between;
+}
+
+.menu-games {
+    display: flex; 
+    
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.menu-games>a {
+    padding: 1rem 1.25rem;
+}
+.menu-games>a:hover {
+    background-color: white;
+    color: rgb(21, 29, 21);
+
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem
+}
+
+.menu-user {
+    font-size: .85rem;
+    display: flex;
+    justify-content:start;
+    align-items: center;
+    /* margin: 1.25 rem 0; */
+}
+
+.menu-user>span {
+    padding: 0 1.25rem;
+}

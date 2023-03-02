@@ -1,0 +1,14 @@
+.footer {
+    width: 1280px;
+    margin: 0 auto;
+    padding: 2rem 0;
+    
+    color: whitesmoke;
+
+    border-top: 1px solid whitesmoke ;
+
+    display: flex;
+    justify-content: center;
+
+
+}
