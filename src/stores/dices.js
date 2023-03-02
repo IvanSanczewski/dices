@@ -23,13 +23,13 @@ export const useDicesStore = defineStore('dices', {
             userId: '',
             userSum: [],
             answered: [],
-            isCorrect: [],
-            differencePenaltie: [],
+            isCorrect: '',
+            answersAreCorrect: [],
+            differencePenalty: [],
+            totalPenalty: 0,
             hihgScore:'',
             playScore:[],
             actualScore:''
-
-
         }
     }),
 
@@ -106,30 +106,32 @@ export const useDicesStore = defineStore('dices', {
 
         answerVsResult(userTotal, total, index) {
             console.log(userTotal, total, index)
+            
             this.userPlay.answered[index] = true
             this.userPlay.isCorrect = (userTotal === total) ? true : false
-            // let userPlayCorrect = (userTotal === total) ? true : false
             console.log(this.userPlay.isCorrect)
-            // console.log(userPlayCorrect)
+            this.userPlay.answersAreCorrect.push(this.userPlay.isCorrect)
 
-            // if(!userPlayCorrect) {
-            //     let difference = total - userTotal
-            //     console.log(difference)
-            // }
+
             
             if (!this.userPlay.isCorrect) {
-                this.userPlay.differencePenaltie = Math.abs(total - userTotal)
-                console.log(this.userPlay.differencePenaltie)
+                this.userPlay.differencePenalty = Math.abs(total - userTotal)
+                console.log(this.userPlay.differencePenalty)
             }
 
             if (index === 9) {
+                console.log(this.userPlay.answersAreCorrect)
                 this.calculateScore()
             }
         },
 
         calculateScore() {
-            let score
-            this.userPlay.isCorrect.map(item => console.log(item))
+            let score = 0
+            this.userPlay.answersAreCorrect.map(item => {
+                score += item ? 10 : 0
+                console.log(score);
+            })
+
         }
 
 
