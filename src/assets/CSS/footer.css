@@ -1,14 +1,13 @@
-.footer {
-    width: 1280px;
+.container-footer {
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 2rem 0;
+    padding: 2rem;
     
     color: whitesmoke;
-
-    border-top: 1px solid whitesmoke ;
+    border-top: 1px solid whitesmoke;
+    /* background-color: rgb(12, 20, 12, .5); */
 
     display: flex;
     justify-content: center;
-
-
 }
+

@@ -1,5 +1,5 @@
 <template>
-    <div class="container-flex nav">
+    <div class="container-nav">
         <div class="menu-games">
             <RouterLink to='/'>LOGO</RouterLink>
             <RouterLink to="/">HOME</RouterLink>

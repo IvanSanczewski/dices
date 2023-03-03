@@ -6,10 +6,14 @@ import Footer from '@/components/Footer.vue'
 </script>
 
 <template>
-  <Navbar/>
+  <header>
+    <Navbar/>
+  </header>
   <main>
     <h1>let's get started!</h1> 
     <RouterView />
   </main>
-  <Footer />
+  <footer>
+    <Footer />
+  </footer>
 </template>
