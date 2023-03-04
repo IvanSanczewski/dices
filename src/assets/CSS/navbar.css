@@ -1,5 +1,5 @@
 .container-nav {
-    padding: 0 4em 0 4em;
+    padding: 0 4em;
 
     color: whitesmoke;
     background-color: rgb(12, 20, 12, .5);
@@ -14,7 +14,7 @@
 .menu-games {
     display: flex; 
     
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     font-weight: 600;
 }
 
@@ -39,4 +39,19 @@
 
 .menu-user>span {
     padding: 0 1.25rem;
+}
+
+
+@media screen and (max-width: 872px){
+    .container-nav {
+        padding: 0 1em;
+    }
+    .menu-games {
+        font-size: .9rem;
+    }
+    
+    .menu-games>a {
+        padding: 1rem .5rem;
+    }
+
 }

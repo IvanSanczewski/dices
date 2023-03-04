@@ -1,12 +1,12 @@
 <template>
     <div class="container-nav">
         <div class="menu-games">
-            <RouterLink to='/'>LOGO</RouterLink>
-            <RouterLink to="/">HOME</RouterLink>
-            <RouterLink to="DiceSum">SUM DICES</RouterLink>
-            <RouterLink to="Colors">COLORS</RouterLink>
-            <RouterLink to="Scores">SCORES</RouterLink>
-            <RouterLink to="Scores">RULES</RouterLink>
+            <RouterLink to='/'>L</RouterLink>
+            <RouterLink to="/">H</RouterLink>
+            <RouterLink to="DiceSum">S</RouterLink>
+            <RouterLink to="Colors">C</RouterLink>
+            <RouterLink to="Scores">S</RouterLink>
+            <RouterLink to="Scores">R</RouterLink>
         </div>
         <div class="menu-user">
             <div v-if="!storeUsers.isLogged" class="user-logged">
