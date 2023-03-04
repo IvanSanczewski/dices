@@ -5,7 +5,7 @@ export const useDicesStore = defineStore('dices', {
         // game settings
         totalDices: 0,
         sumReady: false,
-        diceType: null,
+        diceType: 'cube',
 
 
         // rolling dices
@@ -58,6 +58,8 @@ export const useDicesStore = defineStore('dices', {
   
         addDice(value) {
             console.log(value)
+            
+
             if (this.dices.set.length < this.totalDices) {
                 this.dices.set.push(value)
             } 

@@ -1,7 +1,9 @@
 <template>
     <div class="container-nav">
         <div class="menu-games">
-            <RouterLink to='/'>LOGO</RouterLink>
+            <RouterLink to='/'>
+                <font-awesome-icon icon="fa-solid fa-gamepad" /> games
+            </RouterLink>
             <RouterLink to="/">HOME</RouterLink>
             <RouterLink to="DiceSum">SUM DICES</RouterLink>
             <RouterLink to="Colors">COLORS</RouterLink>
@@ -14,8 +16,12 @@
                 <span @click="storeUsers.toggleLogged">SIGN IN</span>
             </div>
             <div v-else class="user-not-logged">
-                <span @click="storeUsers.toggleLogged">User:</span>
-                <span @click="storeUsers.toggleLogged">LOG OUT</span>
+                <RouterLink to="/" @click="storeUsers.toggleLogged">
+                        <font-awesome-icon icon="fa-solid fa-user" />
+                </RouterLink>
+                <RouterLink to="/" @click="storeUsers.toggleLogged">
+                    <font-awesome-icon icon="fa-solid fa-arrow-right-from-bracket" />
+                </RouterLink>
             </div>
         </div>
     </div>
