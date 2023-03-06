@@ -1,6 +1,7 @@
 /* @import '../CSS/base.css'; */
 @import '../CSS/navbar.css';
 @import '../CSS/footer.css';
+@import '../CSS/home.css';
 
 * {
   box-sizing: border-box;
@@ -59,4 +60,6 @@ a {
   body {
     background: #23d5ab;
   }
+
+  
 }

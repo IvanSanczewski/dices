@@ -30,7 +30,6 @@ toggleMobileMenu(mobile)
     </div> -->
 
   <main>
-    <h1>let's get started!</h1> 
     <RouterView />
   </main>
   <footer>
