@@ -2,6 +2,7 @@
 @import '../CSS/navbar.css';
 @import '../CSS/footer.css';
 @import '../CSS/home.css';
+@import '../CSS/dices.css';
 
 * {
   box-sizing: border-box;
@@ -21,7 +22,7 @@ body {
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   background-size: 400% 400%;
   animation: gradient 45s ease infinite;
-  height: 100vh;
+  /* height: 100vh; */
 
 }
 
@@ -41,19 +42,33 @@ body {
   min-height: 100dvh;
   
   /* background-color: rgb(27, 37, 27); */
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+  /* display: grid;
+  grid-template-rows: auto 1fr auto; */
+
+  display: flex;
+  flex-direction: column;
+
 }
 
 main {
   max-width: 1280px;
   margin: 0 auto;
+
+  flex: 1;
 }
 
 a {
   text-decoration: none;
   color: whitesmoke;
   
+}
+
+footer {
+  flex-shrink: 0;
+  
+  /* width: 100%; */
+  /* position: fixed;
+  bottom: 0; */
 }
 
 @media screen and (max-width: 872px){

@@ -1,0 +1,37 @@
+.container-grid-dices {
+    padding: 1em;
+    display: grid;
+    grid-template-areas: 
+    "title title title title title title title title title"
+    "p p p p p p p p p"
+    "p p p p p p p p p"
+    ". . dice dice dice dice dice . ."
+    "dice-set dice-set dice-set dice-set dice-set dice-set dice-set dice-set dice-set"
+    "p p p p p p p p p"
+    "play play play play play play play play play "
+    "score score score score score score score score score";
+}
+
+.dices-title {
+    grid-area: title;
+}
+
+.dices-p {
+    grid-area: p;
+}
+
+.dices-dice {
+    grid-area: dice;
+}
+
+.dices-dice-set {
+    grid-area: dice-set;
+}
+
+.dices-play {
+    grid-area: play;
+}
+
+.dices-score {
+    grid-area: score;
+}

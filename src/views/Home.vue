@@ -1,4 +1,5 @@
 <template>
+  //FIXME: MAKE A UNIQUE container-grid-games INCLUDING games-title
     <div class="container-games">
       <div class="games-title">
         <h1>MOUNTAIN GAMES</h1>
@@ -8,9 +9,11 @@
       <div class="games-display">
         <div v-for="game in storeGames.games" :key="game.id" class="card">
           <div class="card-img">
-            <!-- <div :style="{backgroundImage: 'url(' + game.image +')' }" class="game-img"></div> -->
-            <img :src="`src/assets/images/${game.image}.jpg`" alt="photo">
-            <!-- <img :src="`${game.image}`" alt="photo"> -->
+            <!-- <a href=`${game.link}`> -->
+            <!-- <a href="{{ game }}"> -->
+            <a :href="game.id - 1">
+              <img :src="`src/assets/images/${game.image}.jpg`" alt="photo">
+            </a>
           </div>
           <div class="card-content">
             <h3>{{ game.name }}</h3>
@@ -24,7 +27,7 @@
 </template>
 
 <script setup>
-// import { RouterLink } from 'vue-router'
+import { RouterLink } from 'vue-router'
 import { useGamesStore } from '@/stores/games.js'
 
 

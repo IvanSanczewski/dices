@@ -12,7 +12,7 @@
         </div>
         <div class="menu-user">
             <div v-if="!storeUsers.isLogged" class="user-logged">
-                <span @click="storeUsers.toggleLogged">LOG IN</span>
+                <span @click="storeUsers.toggleLogged">LOG IN // </span>
                 <span @click="storeUsers.toggleLogged">SIGN IN</span>
             </div>
             <div v-else class="user-not-logged">
