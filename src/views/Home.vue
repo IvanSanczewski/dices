@@ -1,5 +1,5 @@
 <template>
-  //FIXME: MAKE A UNIQUE container-grid-games INCLUDING games-title
+  <!-- FIXME: MAKE A UNIQUE container-grid-games INCLUDING games-title -->
     <div class="container-games">
       <div class="games-title">
         <h1>MOUNTAIN GAMES</h1>

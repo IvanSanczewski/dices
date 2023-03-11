@@ -1,4 +1,78 @@
-.container-grid-dices {
+.container-dices {
+    display: flex;
+    flex-flow: column wrap;
+    padding: 1em;
+    gap: 2em
+    
+}
+
+.dices-title {
+    
+}
+
+.dices-total {
+    display: flex;
+    flex-flow: column;
+}
+
+.dices-total__select {
+
+}
+
+.dices {
+    display: inline-block;
+
+    padding: .5em 1.5em;
+    margin: 1.5em;
+
+    border: 2px solid white;
+    border-radius: .3em;
+}
+
+.dices:hover, .dices:focus {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+
+/* 
+*********
+D I C E S
+*********
+*/
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .container-grid-dices {
     padding: 1em;
     display: grid;
     grid-template-areas: 
@@ -14,10 +88,13 @@
 
 .dices-title {
     grid-area: title;
+    text-align: center;
 }
 
 .dices-p {
     grid-area: p;
+    text-align: center;
+    background-color: crimson;
 }
 
 .dices-dice {
@@ -34,4 +111,5 @@
 
 .dices-score {
     grid-area: score;
-}
+} */
+

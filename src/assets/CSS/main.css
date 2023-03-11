@@ -8,6 +8,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+
+  outline: none;
 }
 
 body {
@@ -59,8 +61,13 @@ main {
 
 a {
   text-decoration: none;
-  color: whitesmoke;
-  
+  color: whitesmoke; 
+}
+
+button {
+  color: white;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 footer {
@@ -75,6 +82,4 @@ footer {
   body {
     background: #23d5ab;
   }
-
-  
 }
