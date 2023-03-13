@@ -33,13 +33,11 @@ export const useDicesStore = defineStore('dices', {
         },
 
         // scores
-
         dicesScore: {
             positive:{
                 
             }
         }
-
     }),
 
     getters: {
