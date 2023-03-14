@@ -16,6 +16,14 @@ export const useDicesStore = defineStore('dices', {
             playsTotal:[],
             diceResult: null
         },
+        dice: [
+            {name: 'tetrahedron', faces: 4, img: '../assets/images/dice4.png'},
+            {name: 'tetrahedron', faces: 6, img: '../assets/images/dice6.png'},
+            {name: 'tetrahedron', faces: 10, img: '../assets/images/dice10.png'},
+            {name: 'tetrahedron', faces: 12, img: '../assets/images/dice12.png'},
+            {name: 'tetrahedron', faces: 20, img: '../assets/images/dice20.png'},
+        ],
+
         
         // user answers
         userPlay: {
@@ -39,7 +47,7 @@ export const useDicesStore = defineStore('dices', {
             }
         }
     }),
-
+    //FIXME: GETTER BLOCKS PLAYING IF VUE DEVTOOLS IS NOT ACTIVE
     getters: {
         diceSetComplete: (state) => {
             if (state.totalDices != 0) {
@@ -57,7 +65,6 @@ export const useDicesStore = defineStore('dices', {
         addDice(value) {
             console.log(value)
             
-
             if (this.dices.set.length < this.totalDices) {
                 this.dices.set.push(value)
             } 
@@ -122,7 +129,6 @@ export const useDicesStore = defineStore('dices', {
             this.userPlay.answersAreCorrect.push(this.userPlay.isCorrect)
 
 
-            
             if (!this.userPlay.isCorrect) {
                 this.userPlay.differencePenalty = Math.abs(total - userTotal)
                 console.log(this.userPlay.differencePenalty)
@@ -140,9 +146,6 @@ export const useDicesStore = defineStore('dices', {
                 score += item ? this.dicesPositive( ) : this.dicesNegative()
             })
             console.log(score);
-
         }
-
-
     }
 })
