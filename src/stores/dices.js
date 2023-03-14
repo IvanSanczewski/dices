@@ -11,19 +11,18 @@ export const useDicesStore = defineStore('dices', {
         // rolling dices
         play:[],
         dices: {
+            type: [
+                {name: 'tetrahedron', faces: 4, img: '../assets/images/dice4.png'},
+                {name: 'cube', faces: 6, img: '../assets/images/dice6.png'},
+                {name: 'decahedron', faces: 10, img: '../assets/images/dice10.png'},
+                {name: 'dodecahedron', faces: 12, img: '../assets/images/dice12.png'},
+                {name: 'icosahedron', faces: 20, img: '../assets/images/dice20.png'},
+            ],
             set: [],
             plays: [],
             playsTotal:[],
             diceResult: null
         },
-        dice: [
-            {name: 'tetrahedron', faces: 4, img: '../assets/images/dice4.png'},
-            {name: 'tetrahedron', faces: 6, img: '../assets/images/dice6.png'},
-            {name: 'tetrahedron', faces: 10, img: '../assets/images/dice10.png'},
-            {name: 'tetrahedron', faces: 12, img: '../assets/images/dice12.png'},
-            {name: 'tetrahedron', faces: 20, img: '../assets/images/dice20.png'},
-        ],
-
         
         // user answers
         userPlay: {
