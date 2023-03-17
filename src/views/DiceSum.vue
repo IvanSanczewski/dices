@@ -65,31 +65,27 @@
             <!-- <div v-for="item in storeDices.dices.set" :key="item"> -->
             <p>YOUR SET OF DICES: </p>
             <div class="display-dice-set">
-                <div v-for="item in storeDices.dices.set" :key="item">
-                    <!-- <span>{{ item }}</span> -->
-                    <img class="dice-set-img" :src="item.img" alt="dice">
-                    <font-awesome-icon class="dice-set-img--overlay-icon" icon="fa-solid fa-trash" />
-                    <!-- <span class="dice-set-img--overlay"><font-awesome-icon class="dice-set-img--overlay-icon" icon="fa-solid fa-trash" /></span> -->
+                <div v-for="item, index in storeDices.dices.set" :key="item.idex">
+                    <img @click="storeDices.deleteDice(index)" class="dice-set-img" :src="item.img" alt="dice">
+                    <!-- <font-awesome-icon class="dice-set-img--overlay-icon" icon="fa-solid fa-trash" /> -->
                 </div>
             </div>
+           
+
             <!-- <button @click="storeDices.deleteDice" class="dices-btn">Delete last dice</button> -->
-            <button @click="
-                goToFirstPlay()"
-                
-                v-if="storeDices.sumReady">
+            <button @click="goToFirstPlay()"
+                v-if="storeDices.sumReady && !storeDices.nowPlaying"
+                class="dices-btn">
                 Roll dices
             </button>
+            <div v-if="storeDices.nowPlaying" class="dices-btn">NOW PLAYING!!</div>
         </div>
-
-            <!-- storeDices.rollDices, -->
 
 
         <div class="score">
             <div v-for="play, index in storeDices.dices.plays" :key="play.index">
                 Play {{ index + 1 }} :{{ play.join(' + ') }} =
             
-                    <!-- $event.target.parentElement.nextSibling.children[1].focus()" -->
-                            <!-- , -->
                     <input @keyup.enter="
                         storeDices.answerVsResult(storeDices.userPlay.userSum[index], storeDices.dices.playsTotal[index], index),
                         nextPlay(index)"
@@ -119,6 +115,7 @@ const nextPlay = index => {
 
 const goToFirstPlay = () => {
     storeDices.rollDices()
+    storeDices.startPlay()
     setTimeout(() => {
         const firstInput = document.querySelector('.user-answer')
         if (firstInput) {

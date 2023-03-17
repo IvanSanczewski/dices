@@ -77,27 +77,8 @@
     width: 100%
 }
 
-.dice-set-img--overlay {
-    position: relative;
-}
-
-.dice-set-img--overlay-icon {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 15%;
-    height: 15%;
-    
-    /* display:flex;
-    align-items: center;
-    justify-content: center; */
-}
-
-
 .dice-set-img:hover {
     opacity: .2
-
-
 }
 
 /* 
@@ -105,9 +86,6 @@
 D I C E S
 *********
 */
-
-  
-  
 
 
 

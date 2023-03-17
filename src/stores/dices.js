@@ -5,6 +5,7 @@ export const useDicesStore = defineStore('dices', {
         // game settings
         totalDices: 0,
         sumReady: false,    
+        nowPlaying: false,
 
 
         // rolling dices
@@ -47,37 +48,44 @@ export const useDicesStore = defineStore('dices', {
     }),
 
     getters: {
-        // diceSetComplete: (state) => {
-        //     if (state.totalDices != 0) {
-        //         return state.sumReady = 
-        //             (state.dices.set.length === state.totalDices) ? true : false
-        //     }
-        // }
+        diceSetComplete: (state) => {
+            if (state.totalDices != 0) {
+                return state.sumReady = 
+                    (state.dices.set.length === state.totalDices) ? true : false
+            }
+        }
     },
 
     actions: {
         dicesCount(value) {
-            this.totalDices = value
+            // if (this.totalDices !== 0) {
+            //     this.totalDices = value
+            // }
+            this.totalDices !== 0 ? alert('The number of dices is already set') : this.totalDices = value
         },
   
         addDice(value) {
-            console.log(value)
-
             if (this.totalDices === 0) {
                 alert ('First you must choose the number of dices')
             } else if (this.dices.set.length < this.totalDices) {
                 this.dices.set.push(value)
 
-                if (this.dices.set.length === this.totalDices)  {
-                    this.sumReady = true
-                }
+                // if (this.dices.set.length === this.totalDices)  {
+                //     this.sumReady = true
+                // }
             } 
             //TODO: CALL shuffleSet() TO RANDOMLY DISPLAY THE SET
         },
 
-        deleteDice() {
-            this.dices.set.pop()
+        deleteDice(index) {
+            console.log(index);
+            // this.dices.set.pop()
             //TODO: DELETE ANY DICE FROM THE SET
+            this.dices.set.splice(index, 1)
+        },
+
+        startPlay() {
+            this.nowPlaying = true
         },
 
         rollDices() {
@@ -88,7 +96,7 @@ export const useDicesStore = defineStore('dices', {
             for (let i = 0; i < 10 ; i++) {
                 this.dices.set.map(dice => {
                     //TODO: IMPLEMENT AN OBJECT TO PASS THE PROPER NUMBER AS A PARAMATER ACCORDING THE TYPE OF DICE
-                    switch (dice) {
+                    switch (dice.name) {
                         case 'tetrahedron':
                             this.rollOneDice(4)
                             break
