@@ -18,7 +18,7 @@
 
         <h3>Pick up your dices:</h3>
         <div class="dice-type">
-            <div class="dice dices-btn" @click="storeDices.addDice('tetrahedron')">
+            <div class="dice dices-btn" @click="storeDices.addDice(storeDices.dices.type[0])">
                 <img class="dice-img" src="../assets/images/dice4.png" alt="dice">
                 <div class="dice-txt">
                     <p>Tetrahedron</p>
@@ -26,7 +26,8 @@
                 </div>
             </div>
 
-            <div class="dice dices-btn" @click="storeDices.addDice('cube')">
+            <!-- <div class="dice dices-btn" @click="storeDices.addDice('../assets/images/dice6.png')"> -->
+            <div class="dice dices-btn" @click="storeDices.addDice(storeDices.dices.type[1])">
                 <img class="dice-img" src="../assets/images/dice6.png" alt="dice">
                 <div class="dice-txt">
                     <p>Cube</p>
@@ -34,7 +35,7 @@
                 </div>
             </div>
 
-            <div class="dice dices-btn" @click="storeDices.addDice('decahedron')">
+            <div class="dice dices-btn" @click="storeDices.addDice(storeDices.dices.type[2])">
                 <img class="dice-img" src="../assets/images/dice10.png" alt="dice">
                 <div class="dice-txt">
                     <p>Decahedron</p>
@@ -42,7 +43,7 @@
                 </div>
             </div>
             
-            <div class="dice dices-btn" @click="storeDices.addDice('dodecahedron')">
+            <div class="dice dices-btn" @click="storeDices.addDice(storeDices.dices.type[3])">
                 <img class="dice-img" src="../assets/images/dice12.png" alt="dice">
                 <div class="dice-txt">
                     <p>Dodecahedron</p>
@@ -50,7 +51,8 @@
                 </div>
             </div>
             
-            <div class="dice dices-btn" @click="storeDices.addDice('icosahedron')">
+            <!-- <div class="dice dices-btn" @click="storeDices.addDice('icosahedron')"> -->
+            <div class="dice dices-btn" @click="storeDices.addDice(storeDices.dices.type[4])">
                 <img class="dice-img" src="../assets/images/dice20.png" alt="dice">
                 <div class="dice-txt">
                     <p>Icosahedron</p>
@@ -59,25 +61,18 @@
             </div>
         </div>
 
-        <!-- <form @submit.prevent="storeDices.addDice(storeDices.diceType)" class="select-dices">
-            <label>Next dice:</label>
-                <select name="dice-type" v-model="storeDices.diceType">
-                    <option value="tetrahedron">Tetrahedron(4 faces)</option>
-                    <option value="cube">Cube(6 faces)</option>
-                    <option value="decahedron">Decahedron(10 faces)</option>
-                    <option value="dodecahedron">Dodecahedron(12 faces)</option>
-                    <option value="icosahedron">Icosahedron(20 faces)</option>
-            </select>
-            <button class="dices-btn">Add dice</button>
-            <p v-if="storeDices.sumReady">Your dice stack is full, press ROLL DICES or delete an amount of dices, then fill the stack again and press ROLL DICES.</p>
-        </form> -->
-
         <div class="dice-set">
+            <!-- <div v-for="item in storeDices.dices.set" :key="item"> -->
             <p>YOUR SET OF DICES: </p>
-            <div v-for="item in storeDices.dices.set" :key="item">
-                <span>{{ item }}</span>
+            <div class="display-dice-set">
+                <div v-for="item in storeDices.dices.set" :key="item">
+                    <!-- <span>{{ item }}</span> -->
+                    <img class="dice-set-img" :src="item.img" alt="dice">
+                    <font-awesome-icon class="dice-set-img--overlay-icon" icon="fa-solid fa-trash" />
+                    <!-- <span class="dice-set-img--overlay"><font-awesome-icon class="dice-set-img--overlay-icon" icon="fa-solid fa-trash" /></span> -->
+                </div>
             </div>
-            <button @click="storeDices.deleteDice" class="dices-btn">Delete last dice</button>
+            <!-- <button @click="storeDices.deleteDice" class="dices-btn">Delete last dice</button> -->
             <button @click="
                 goToFirstPlay()"
                 

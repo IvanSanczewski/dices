@@ -4,19 +4,18 @@ export const useDicesStore = defineStore('dices', {
     state: () => ({
         // game settings
         totalDices: 0,
-        sumReady: false,
-        diceType: 'cube',
+        sumReady: false,    
 
 
         // rolling dices
         play:[],
         dices: {
             type: [
-                {name: 'tetrahedron', faces: 4, img: '../assets/images/dice4.png'},
-                {name: 'cube', faces: 6, img: '../assets/images/dice6.png'},
-                {name: 'decahedron', faces: 10, img: '../assets/images/dice10.png'},
-                {name: 'dodecahedron', faces: 12, img: '../assets/images/dice12.png'},
-                {name: 'icosahedron', faces: 20, img: '../assets/images/dice20.png'},
+                {name: 'tetrahedron', faces: 4, img: '/src/assets/images/dice4.png'},
+                {name: 'cube', faces: 6, img: '/src/assets/images/dice6.png'},
+                {name: 'decahedron', faces: 10, img: '/src/assets/images/dice10.png'},
+                {name: 'dodecahedron', faces: 12, img: '/src/assets/images/dice12.png'},
+                {name: 'icosahedron', faces: 20, img: '/src/assets/images/dice20.png'},
             ],
             set: [],
             plays: [],
@@ -46,14 +45,14 @@ export const useDicesStore = defineStore('dices', {
             }
         }
     }),
-    //FIXME: GETTER BLOCKS PLAYING IF VUE DEVTOOLS IS NOT ACTIVE
+
     getters: {
-        diceSetComplete: (state) => {
-            if (state.totalDices != 0) {
-                return state.sumReady = 
-                    (state.dices.set.length === state.totalDices) ? true : false
-            }
-        }
+        // diceSetComplete: (state) => {
+        //     if (state.totalDices != 0) {
+        //         return state.sumReady = 
+        //             (state.dices.set.length === state.totalDices) ? true : false
+        //     }
+        // }
     },
 
     actions: {
@@ -63,9 +62,15 @@ export const useDicesStore = defineStore('dices', {
   
         addDice(value) {
             console.log(value)
-            
-            if (this.dices.set.length < this.totalDices) {
+
+            if (this.totalDices === 0) {
+                alert ('First you must choose the number of dices')
+            } else if (this.dices.set.length < this.totalDices) {
                 this.dices.set.push(value)
+
+                if (this.dices.set.length === this.totalDices)  {
+                    this.sumReady = true
+                }
             } 
             //TODO: CALL shuffleSet() TO RANDOMLY DISPLAY THE SET
         },
