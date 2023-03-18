@@ -47,16 +47,18 @@ export const useDicesStore = defineStore('dices', {
         }
     }),
 
-    getters: {
-        diceSetComplete: (state) => {
-            if (state.totalDices != 0) {
-                return state.sumReady = 
-                    (state.dices.set.length === state.totalDices) ? true : false
-            }
-        }
-    },
+    // WON'T WORK IF VIE DEVTOOLS IS NOT ACTIVE >> SOLVED IN DELETE DICE, THOUGH IS NOT THE IDEAL SOLUTION
+    // getters: {
+    //     diceSetComplete: (state) => {
+    //         if (state.totalDices != 0) {
+    //             return state.sumReady = 
+    //                 (state.dices.set.length === state.totalDices) ? true : false
+    //         }
+    //     }
+    // },
 
     actions: {
+        // set the number of dices to roll (6, 10, 12)
         dicesCount(value) {
             // if (this.totalDices !== 0) {
             //     this.totalDices = value
@@ -64,30 +66,34 @@ export const useDicesStore = defineStore('dices', {
             this.totalDices !== 0 ? alert('The number of dices is already set') : this.totalDices = value
         },
   
+        // adds a dice of selected type to the set
         addDice(value) {
             if (this.totalDices === 0) {
                 alert ('First you must choose the number of dices')
             } else if (this.dices.set.length < this.totalDices) {
                 this.dices.set.push(value)
 
-                // if (this.dices.set.length === this.totalDices)  {
-                //     this.sumReady = true
-                // }
+                if (this.dices.set.length === this.totalDices)  {
+                    this.sumReady = true
+                }
             } 
             //TODO: CALL shuffleSet() TO RANDOMLY DISPLAY THE SET
         },
 
+        // removes selected dice from set
         deleteDice(index) {
             console.log(index);
-            // this.dices.set.pop()
             //TODO: DELETE ANY DICE FROM THE SET
             this.dices.set.splice(index, 1)
+            this.sumReady = false
         },
 
+        // displays paying message in absence of ROLL DICES
         startPlay() {
             this.nowPlaying = true
         },
 
+        // cicles through the dice set array and calls rollOneDice with the proper parameter
         rollDices() {
             this.dices.plays = []
             this.dices.playsTotal = []
@@ -121,17 +127,20 @@ export const useDicesStore = defineStore('dices', {
             }
         },
 
+        // assigns a random number between 1 and the number of faces of the dice passed as a parameter to diceResult
         rollOneDice(sides) {
             this.dices.diceResult = Math.floor(Math.random() * (sides)) + 1;
             // return Math.floor(Math.random() * (sides)) + 1
         },
 
+        // cicles through each of 10 plays to sum the total of dices
         getPlayResult(play) { // SHOULD playActual BE A LOCAL VAR?
             let playActual = 0
             play.map(dice => playActual += dice)
             this.dices.playsTotal.push(playActual)
         },
 
+        // cheks if user result is correct for each play && calls calculateScore after the last play answer is given
         answerVsResult(userTotal, total, index) {
             console.log(userTotal, total, index)
             
@@ -152,10 +161,20 @@ export const useDicesStore = defineStore('dices', {
             }
         },
 
+
         calculateScore() {
             let score = 0
             this.userPlay.answersAreCorrect.map(item => {
-                score += item ? this.dicesPositive( ) : this.dicesNegative()
+                // score += item ? this.dicesPositive() : this.dicesNegative()
+                let index = 0
+                console.log(item, index)
+                item ? 
+                    score += this.dices.playsTotal[index]
+                    : 
+                    score -= Math.abs(this.dices.playsTotal[index] - this.userPlay.userSum[index])
+                    console.log(score);
+                index ++
+                console.log(score);
             })
             console.log(score);
         }

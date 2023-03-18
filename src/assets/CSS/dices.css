@@ -63,10 +63,25 @@
     text-align: center;
 }
 
+.dice-set {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2em
+
+    
+}
+
 .display-dice-set {
     display: flex;
-    justify-content: flex-start;
-    gap: 2em;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 1.8em;
+    
+    /* padding: 1em;
+    border: 2px solid white;
+    border-radius: 1em; */
 }
 .display-dice-set div {
     width: 75px;
@@ -74,11 +89,17 @@
 }
 
 .dice-set-img {
-    width: 100%
+    width: 100%;
 }
+
+
 
 .dice-set-img:hover {
     opacity: .2
+}
+
+.dice-set button {
+    margin: 0
 }
 
 /* 

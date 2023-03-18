@@ -76,7 +76,7 @@
             <button @click="goToFirstPlay()"
                 v-if="storeDices.sumReady && !storeDices.nowPlaying"
                 class="dices-btn">
-                Roll dices
+                ROLL'EM!!
             </button>
             <div v-if="storeDices.nowPlaying" class="dices-btn">NOW PLAYING!!</div>
         </div>
@@ -104,6 +104,7 @@ import { useDicesStore } from '@/stores/dices'
 
 const storeDices = useDicesStore()
 
+// controls focus on each answer input area so it can be played without the mouse
 const nextPlay = index => {
     console.log(index)
     if (index < 9) {
@@ -113,6 +114,7 @@ const nextPlay = index => {
     }
 }
 
+// triggers the start of the game by calling rollDices & startPlay, then puts focus on the first answer input area
 const goToFirstPlay = () => {
     storeDices.rollDices()
     storeDices.startPlay()
