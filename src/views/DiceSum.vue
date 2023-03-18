@@ -75,7 +75,7 @@
             <!-- <button @click="storeDices.deleteDice" class="dices-btn">Delete last dice</button> -->
             <button @click="goToFirstPlay()"
                 v-if="storeDices.sumReady && !storeDices.nowPlaying"
-                class="dices-btn">
+                class="dices-btn ">
                 ROLL'EM!!
             </button>
             <div v-if="storeDices.nowPlaying" class="dices-btn">NOW PLAYING!!</div>

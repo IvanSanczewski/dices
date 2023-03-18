@@ -164,17 +164,15 @@ export const useDicesStore = defineStore('dices', {
 
         calculateScore() {
             let score = 0
+            let index = 0
             this.userPlay.answersAreCorrect.map(item => {
                 // score += item ? this.dicesPositive() : this.dicesNegative()
-                let index = 0
                 console.log(item, index)
                 item ? 
                     score += this.dices.playsTotal[index]
-                    : 
+                    :
                     score -= Math.abs(this.dices.playsTotal[index] - this.userPlay.userSum[index])
-                    console.log(score);
                 index ++
-                console.log(score);
             })
             console.log(score);
         }
