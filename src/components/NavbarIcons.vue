@@ -13,7 +13,7 @@
             <RouterLink to="Colors">
                 <font-awesome-icon icon="fa-solid fa-palette" />
             </RouterLink>
-            <RouterLink to="Scores">
+            <RouterLink to="HighScores">
                 <font-awesome-icon icon="fa-solid fa-trophy" />
             </RouterLink>
             <!-- FIXME: MAKE IT COMPONENT -->

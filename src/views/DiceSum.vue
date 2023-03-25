@@ -96,11 +96,14 @@
                         class="user-answer">
             </div>
         </div>
+        <Score />
     </div>
 </template>
 
 <script setup>
+import Score from '../components/Score.vue'
 import { useDicesStore } from '@/stores/dices'
+
 
 const storeDices = useDicesStore()
 

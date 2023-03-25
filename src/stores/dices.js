@@ -175,6 +175,8 @@ export const useDicesStore = defineStore('dices', {
                 index ++
             })
             console.log(score);
+            this.userPlay.actualScore = score
+            console.log(this.userPlay.actualScore);
         }
     }
 })

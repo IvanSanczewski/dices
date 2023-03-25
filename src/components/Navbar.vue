@@ -7,8 +7,8 @@
             <RouterLink to="/">HOME</RouterLink>
             <RouterLink to="DiceSum">SUM DICES</RouterLink>
             <RouterLink to="Colors">COLORS</RouterLink>
-            <RouterLink to="Scores">SCORES</RouterLink>
-            <RouterLink to="Scores">RULES</RouterLink>
+            <RouterLink to="HighScores">SCORES</RouterLink>
+            <RouterLink to="HighScores">RULES</RouterLink>
         </div>
         <div class="menu-user">
             <div v-if="!storeUsers.isLogged" class="user-logged">

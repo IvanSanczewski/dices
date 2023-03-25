@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import DiceSum from '@/views/DiceSum.vue'
 import Home from '@/views/Home.vue'
-import Scores from '@/views/Scores.vue'
+import HighScores from '@/views/HighScores.vue'
 import Colors from '@/views/Colors.vue'
 
 
@@ -25,9 +25,9 @@ const router = createRouter({
       component: Colors
     },
     {
-      path: '/scores',
-      name: 'scores',
-      component: Scores
+      path: '/highScores',
+      name: 'highScores',
+      component: HighScores
     },
     
   ]
