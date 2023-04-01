@@ -1,5 +1,5 @@
 <template>
-    <p>Score: {{ storeDices.userPlay.actualScore }}</p>
+    <p>This is the Log In Component</p>
 </template>
 
 <script setup>

@@ -12,12 +12,14 @@
         </div>
         <div class="menu-user">
             <div v-if="!storeUsers.isLogged" class="user-logged">
-                <span @click="storeUsers.toggleLogged">LOG IN // </span>
-                <span @click="storeUsers.toggleLogged">SIGN IN</span>
+                <span @click="storeUsers.toggleLogged">LOG IN || </span>
+                <!-- <RouterLink to="DiceSum">SIGN IN</RouterLink> -->
+                <RouterLink to="Signin" @click="storeUsers.toggleLogged">SIGN IN</RouterLink>
+                <!-- <span @click="storeUsers.toggleLogged">SIGN IN</span> -->
             </div>
             <div v-else class="user-not-logged">
                 <RouterLink to="/" @click="storeUsers.toggleLogged">
-                        <font-awesome-icon icon="fa-solid fa-user" />
+                    <font-awesome-icon icon="fa-solid fa-user" />
                 </RouterLink>
                 <RouterLink to="/" @click="storeUsers.toggleLogged">
                     <font-awesome-icon icon="fa-solid fa-arrow-right-from-bracket" />

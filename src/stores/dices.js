@@ -6,6 +6,7 @@ export const useDicesStore = defineStore('dices', {
         totalDices: 0,
         sumReady: false,    
         nowPlaying: false,
+        displayScore: false,
 
 
         // rolling dices
@@ -175,6 +176,7 @@ export const useDicesStore = defineStore('dices', {
                 index ++
             })
             console.log(score);
+            this.displayScore = true
             this.userPlay.actualScore = score
             console.log(this.userPlay.actualScore);
         }

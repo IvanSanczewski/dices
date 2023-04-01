@@ -94,9 +94,10 @@
                         type="number"
                         :disabled="storeDices.userPlay.answered[index]"
                         class="user-answer">
+                    <span v-if="storeDices.displayScore">  {{ storeDices.userPlay.answersAreCorrect[index] }}</span>
             </div>
         </div>
-        <Score />
+        <Score v-if="storeDices.displayScore"/>
     </div>
 </template>
 
