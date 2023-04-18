@@ -7,7 +7,7 @@ export const useGamesStore = defineStore('games', {
         games:[
             {
                 name: 'SUM DICES',
-                link: 'https://diablo4.blizzard.com',
+                link: '/diceSum',
                 image: 'dices',
                 highScore: 0,
                 highScoreUser: 'Computer',

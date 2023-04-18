@@ -6,6 +6,7 @@ import NavbarIcons from '@/components/NavbarIcons.vue'
 import Footer from '@/components/Footer.vue'
 
 
+
 const mobile = ref(false)
 console.log(mobile.value)
 

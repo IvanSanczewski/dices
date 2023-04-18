@@ -11,7 +11,9 @@
           <div class="card-img">
             <!-- <a href=`${game.link}`> -->
             <!-- <a href="{{ game }}"> -->
-            <a :href="game.id - 1">
+
+            <!-- <a :href="game.id - 1"> -->
+            <a :href="game.link">
               <img :src="`src/assets/images/${game.image}.jpg`" alt="photo">
             </a>
           </div>

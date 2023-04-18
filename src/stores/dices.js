@@ -37,7 +37,9 @@ export const useDicesStore = defineStore('dices', {
             totalPenalty: 0,
             hihgScore:'',
             playScore:[],
-            actualScore:''
+            actualScore:'',
+            payResult: null,
+
         },
 
         // scores
@@ -167,7 +169,6 @@ export const useDicesStore = defineStore('dices', {
             let score = 0
             let index = 0
             this.userPlay.answersAreCorrect.map(item => {
-                // score += item ? this.dicesPositive() : this.dicesNegative()
                 console.log(item, index)
                 item ? 
                     score += this.dices.playsTotal[index]
