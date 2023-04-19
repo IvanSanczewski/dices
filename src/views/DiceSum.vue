@@ -94,7 +94,6 @@
                         type="number"
                         :disabled="storeDices.userPlay.answered[index]"
                         class="user-answer">
-                    <span v-if="storeDices.displayScore">  {{ storeDices.userPlay.answersAreCorrect[index] }} </span>
                     <div v-if="storeDices.displayScore">  
                         <span v-if="storeDices.userPlay.answersAreCorrect[index]"> 
                             <font-awesome-icon icon="fa-solid fa-check" />

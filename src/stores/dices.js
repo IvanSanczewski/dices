@@ -154,8 +154,14 @@ export const useDicesStore = defineStore('dices', {
 
 
             if (!this.userPlay.isCorrect) {
-                this.userPlay.differencePenalty = Math.abs(total - userTotal)
-                console.log(this.userPlay.differencePenalty)
+                // this.userPlay.differencePenalty = Math.abs(total - userTotal)
+                // console.log(this.userPlay.differencePenalty)
+                
+                let difference = Math.abs(total - userTotal)
+                console.log(difference);
+                this.userPlay.differencePenalty.push(difference)
+            } else {
+                this.userPlay.differencePenalty.push(0)
             }
 
             if (index === 9) {
@@ -163,7 +169,6 @@ export const useDicesStore = defineStore('dices', {
                 this.calculateScore()
             }
         },
-
 
         calculateScore() {
             let score = 0
