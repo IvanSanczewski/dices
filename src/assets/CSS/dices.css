@@ -93,13 +93,31 @@
 }
 
 
-
 .dice-set-img:hover {
     opacity: .2
 }
 
 .dice-set button {
     margin: 0
+}
+
+.score {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem
+}
+
+.dice--play {
+    display: flex;
+    gap: 1.5rem
+}
+
+.dice--play__correct {
+    color: rgb(159, 225, 142)
+
+}
+.dice--play__wrong {
+    color: rgb(225, 142, 159)
 }
 
 /* 

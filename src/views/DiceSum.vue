@@ -83,7 +83,7 @@
 
 
         <div class="score">
-            <div v-for="play, index in storeDices.dices.plays" :key="play.index">
+            <div class="dice--play" v-for="play, index in storeDices.dices.plays" :key="play.index">
                 Play {{ index + 1 }} :{{ play.join(' + ') }} =
             
                     <input @keyup.enter="
@@ -95,12 +95,12 @@
                         :disabled="storeDices.userPlay.answered[index]"
                         class="user-answer">
                     <div v-if="storeDices.displayScore">  
-                        <span v-if="storeDices.userPlay.answersAreCorrect[index]"> 
+                        <div v-if="storeDices.userPlay.answersAreCorrect[index]" class="dice--play__correct"> 
                             <font-awesome-icon icon="fa-solid fa-check" />
-                        </span>
-                        <span v-if="!storeDices.userPlay.answersAreCorrect[index]">
-                            <font-awesome-icon icon="fa-solid fa-circle-xmark" /> - {{ storeDices.userPlay.differencePenalty[index] }}
-                        </span>
+                        </div>
+                        <div v-if="!storeDices.userPlay.answersAreCorrect[index]" class="dice--play__wrong">
+                            <font-awesome-icon icon="fa-solid fa-circle-xmark" class="dice--play__wrong"/> - {{ storeDices.userPlay.differencePenalty[index] }}
+                        </div>
                     </div>
             </div>
         </div>
