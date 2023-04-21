@@ -147,6 +147,12 @@ export const useDicesStore = defineStore('dices', {
         answerVsResult(userTotal, total, index) {
             console.log(userTotal, total, index)
             
+            if (userTotal === undefined) {
+                userTotal = 0
+            }
+
+            console.log(userTotal)
+
             this.userPlay.answered[index] = true
             this.userPlay.isCorrect = (userTotal === total) ? true : false
             console.log(this.userPlay.isCorrect)
@@ -154,11 +160,7 @@ export const useDicesStore = defineStore('dices', {
 
 
             if (!this.userPlay.isCorrect) {
-                // this.userPlay.differencePenalty = Math.abs(total - userTotal)
-                // console.log(this.userPlay.differencePenalty)
-                
                 let difference = Math.abs(total - userTotal)
-                console.log(difference);
                 this.userPlay.differencePenalty.push(difference)
             } else {
                 this.userPlay.differencePenalty.push(0)
