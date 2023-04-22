@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 
 
+
 export const useGamesStore = defineStore('games', {
     state: () =>({
         // games
@@ -16,7 +17,7 @@ export const useGamesStore = defineStore('games', {
             },
             {
                 name: 'NUMBERS',
-                link: 'https://diablo4.blizzard.com',
+                link: '/numbers',
                 image: 'numbers',
                 highScore: 0,
                 highScoreUser: 'Computer',
@@ -89,11 +90,13 @@ export const useGamesStore = defineStore('games', {
         ]
     }),
     computed: {
-        gamesLinks() {
-            return storeGames.games.map(game => game.link);
-        }
     },
     actions: {
-
+        // gamesLinks() {
+            // console.log(this.games.map(game => game.link))
+            // return storeGames.games.map(game => game.link)
+        // }
+        
     }
+
 })

@@ -1,9 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import DiceSum from '@/views/DiceSum.vue'
 import Home from '@/views/Home.vue'
-import HighScores from '@/views/HighScores.vue'
+import DiceSum from '@/views/DiceSum.vue'
+import Numbers from '@/views/Numbers.vue'
 import Colors from '@/views/Colors.vue'
+import HighScores from '@/views/HighScores.vue'
 import Signin from '@/components/Signin.vue'
 import Login from '@/components/Login.vue'
 
@@ -20,6 +21,11 @@ const router = createRouter({
       path: '/diceSum',
       name: 'diceSum',
       component: DiceSum
+    },
+    {
+      path: '/numbers',
+      name: 'numbers',
+      component: Numbers
     },
     {
       path: '/colors',

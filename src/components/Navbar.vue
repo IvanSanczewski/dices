@@ -6,6 +6,7 @@
             </RouterLink>
             <RouterLink to="/">HOME</RouterLink>
             <RouterLink to="DiceSum">SUM DICES</RouterLink>
+            <RouterLink to="Numbers">NUMBERS</RouterLink>
             <RouterLink to="Colors">COLORS</RouterLink>
             <RouterLink to="HighScores">SCORES</RouterLink>
             <RouterLink to="HighScores">RULES</RouterLink>

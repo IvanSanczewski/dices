@@ -32,6 +32,7 @@
 import { RouterLink } from 'vue-router'
 import { useGamesStore } from '@/stores/games.js'
 
-
 const storeGames = useGamesStore()
+
+// storeGames.gamesLinks()
 </script>
