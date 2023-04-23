@@ -3,6 +3,7 @@
 @import '../CSS/footer.css';
 @import '../CSS/home.css';
 @import '../CSS/dices.css';
+@import '../CSS/numbers.css';
 
 * {
   box-sizing: border-box;

@@ -3,7 +3,13 @@ import { defineStore } from 'pinia'
 export const useNumbersStore = defineStore('numbers', {
     state: () => ({
         //big square
-        bigSquare:[],
+        bigSquare:'',
         actualSquare: ''
     }),
+
+    actions: {
+        setSquare(side) {
+            this.bigSquare = side * side
+        }
+    }
 })
