@@ -3,7 +3,6 @@
     flex-flow: column wrap;
     padding: 1em;
     gap: 2em
-    
 }
 
 .dices-title {
@@ -37,7 +36,8 @@
     cursor: pointer;
 }
 
-.dices-btn:hover, .dices-btn:focus {
+.dices-btn:hover,
+.dices-btn:focus {
     background-color: rgba(255, 255, 255, 0.5);
 }
 
@@ -69,8 +69,6 @@
     justify-content: center;
     align-items: center;
     gap: 2em
-
-    
 }
 
 .display-dice-set {

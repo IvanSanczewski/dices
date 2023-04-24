@@ -1,3 +1,28 @@
 sup {
     font-size: .6rem;
 }
+
+.numbers-btn {
+    display: inline-block;
+    
+    margin: 1.5em;
+    padding: .5em 1.5em;
+    
+    font-size: 1rem;
+
+    border: 2px solid white;
+    border-radius: .3em;
+
+    cursor: pointer;
+}
+
+.numbers-btn:hover,
+.numbers-btn:focus {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.square {
+    display: grid;
+    grid-template-rows: repeat(1fr, 5);
+    grid-template-columns: repeat(1fr, 5);
+}
