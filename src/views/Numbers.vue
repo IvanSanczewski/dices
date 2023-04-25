@@ -15,7 +15,7 @@
 
         <div class="square">
             <div v-for="cell, index in storeNumbers.squareValues" :key="index" class="cell">
-                {{ cell }}
+                <div class="cell--content">{{ cell }}</div>
             </div>
         </div>
     </div>
