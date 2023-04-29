@@ -45,7 +45,6 @@ sup {
 }
 
 .cell--content {
-    justify-self: center;
-    align-self: center;
-
+    justify-self: center;    
+    align-self: center;  
 }
