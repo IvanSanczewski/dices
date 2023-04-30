@@ -14,11 +14,24 @@ export const useUsersStore = defineStore('users', {
     }),
 
     actions: {
-        signin() {
-            this.toggleLogged()
-            console.log('SIGNED IN');
-            
+        signinTry() {
+            this.signin()
         },
+        
+        signin() {
+            console.log(this.user.name, this.user.email, this.user.password)
+            
+            try {
+                this.toggleLogged()
+                console.log('SIGNED IN');
+                
+            } catch (error) {
+                
+            }
+            
+
+        },
+
         
         toggleLogged() {
             this.isLogged = !this.isLogged
