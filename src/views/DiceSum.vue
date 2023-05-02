@@ -104,18 +104,18 @@
                     </div>
             </div>
         </div>
-        <Score v-if="storeDices.displayScore" @load="storeScores.addNewHighScore('dices', 'Mika', storeDices.userPlay.actualScore)" />
+        <Score v-if="storeDices.displayScore" />
     </div>
 </template>
 
 <script setup>
 import Score from '../components/Score.vue'
 import { useDicesStore } from '@/stores/dices'
-import { useScoresStore } from '@/stores/scores';
+// import { useScoresStore } from '@/stores/scores';
 
 
 const storeDices = useDicesStore()
-const storeScores = useScoresStore()
+// const storeScores = useScoresStore()
 
 // controls focus on each answer input area so it can be played without the mouse
 const nextPlay = index => {
