@@ -15,9 +15,6 @@ export const useUsersStore = defineStore('users', {
     }),
 
     actions: {
-        signinTry() {
-            this.signin()
-        },
         // function called on submit 
         async signin() {
             console.log(this.user.name, this.user.email, this.user.password)
@@ -25,9 +22,8 @@ export const useUsersStore = defineStore('users', {
             // in try block we send user sign in info to FIREBASE
             // promise
             try {
-                console.log('Before Firebase authentication call')
+                // call FIREBASE method with user email and password and store response object, method is a promise
                 const response = await projectAuth.createUserWithEmailAndPassword(this.user.email, this.user.password)
-                console.log('After Firebase authentication call')
                 
                 if (!response) {
                     throw new Error('Could not Sign In')
@@ -38,18 +34,14 @@ export const useUsersStore = defineStore('users', {
 
                 // after signing in, call toggle function to show logged user name
                 this.toggleLogged()
-                console.log('SIGNED IN');
             
             // throw error if connection to FIREBASE failed
             } catch (err) {
                 console.log('Error:', err.message)
                 alert(err.message)
             }
-            
-
         },
 
-        
         toggleLogged() {
             this.isLogged = !this.isLogged
         }

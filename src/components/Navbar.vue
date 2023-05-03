@@ -12,15 +12,16 @@
             <RouterLink to="HighScores">RULES</RouterLink>
         </div>
         <div class="menu-user">
-            <div v-if="!storeUsers.isLogged" class="user-logged">
-                <span @click="storeUsers.toggleLogged">LOG IN || </span>
+            <div v-if="!storeUsers.isLogged" class="not--logged">
+                <span>LOG IN || </span>
+                <!-- <span @click="storeUsers.toggleLogged">LOG IN || </span> -->
                 <!-- <RouterLink to="DiceSum">SIGN IN</RouterLink> -->
-                <RouterLink to="Signin" @click="storeUsers.toggleLogged">SIGN IN</RouterLink>
+                <RouterLink to="Signin">SIGN IN</RouterLink>
                 <!-- <span @click="storeUsers.toggleLogged">SIGN IN</span> -->
             </div>
-            <div v-else class="user-not-logged">
+            <div v-else class="logged">
                 <RouterLink to="/" @click="storeUsers.toggleLogged">
-                    <font-awesome-icon icon="fa-solid fa-user" />
+                    <font-awesome-icon icon="fa-solid fa-user" /> {{ storeUsers.user.name }} 
                 </RouterLink>
                 <RouterLink to="/" @click="storeUsers.toggleLogged">
                     <font-awesome-icon icon="fa-solid fa-arrow-right-from-bracket" />
@@ -28,7 +29,6 @@
             </div>
         </div>
     </div>
-
 </template>
 
 <script setup>
