@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
-import { projectAuth } from '../firebase/config'
+import { projectAuth } from '@/firebase/config'
+import router from '@/router'
 
 export const useUsersStore = defineStore('users', {
     state: () => ({
@@ -34,6 +35,7 @@ export const useUsersStore = defineStore('users', {
 
                 // after signing in, call toggle function to show logged user name
                 this.toggleLogged()
+                router.push({ name: 'user' })
             
             // throw error if connection to FIREBASE failed
             } catch (err) {
