@@ -5,8 +5,11 @@ import DiceSum from '@/views/DiceSum.vue'
 import Numbers from '@/views/Numbers.vue'
 import Colors from '@/views/Colors.vue'
 import HighScores from '@/views/HighScores.vue'
+import User from '@/views/User.vue'
 import Signin from '@/components/Signin.vue'
 import Login from '@/components/Login.vue'
+
+
 
 
 const router = createRouter({
@@ -46,6 +49,11 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/user',
+      name: 'user',
+      component: User
     },
   ]
 })

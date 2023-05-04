@@ -10,10 +10,10 @@
 </template>
 
 <script setup>
-import { useDicesStore } from "@/stores/dices"
+// import { useDicesStore } from "@/stores/dices"
 import { useUsersStore } from "@/stores/users";
 
-const storeDices = useDicesStore()
+// const storeDices = useDicesStore()
 const storeUsers = useUsersStore()
 
 </script>

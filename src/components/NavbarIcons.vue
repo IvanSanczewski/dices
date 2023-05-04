@@ -22,21 +22,22 @@
             </RouterLink>
         </div>
         <div class="menu-user">
-            <div v-if="!storeUsers.isLogged" class="user-logged">
-                <RouterLink to="/" @click="storeUsers.toggleLogged">
+            <div v-if="!storeUsers.isLogged" class="not--logged">
+                <RouterLink to="/">
                     <font-awesome-icon icon="fa-solid fa-arrow-right-to-bracket" />
                 </RouterLink>
-                <RouterLink to="/" @click="storeUsers.toggleLogged">
+                <RouterLink to="Signin">
                     <font-awesome-icon icon="fa-solid fa-arrow-down-short-wide" />
                 </RouterLink>
-                <!-- <span @click="storeUsers.toggleLogged">SIGN IN</span> -->
             </div>
-            <div v-else class="user-not-logged">
-                <RouterLink to="/" @click="storeUsers.toggleLogged">
-                        <font-awesome-icon icon="fa-solid fa-user" />
+            <div v-else class="logged">
+                <RouterLink to="User">
+                        <font-awesome-icon icon="fa-solid fa-user" /> {{ storeUsers.user.name }}
                 </RouterLink>
                 <RouterLink to="/" @click="storeUsers.toggleLogged">
-                    <font-awesome-icon icon="fa-solid fa-arrow-right-from-bracket" />
+                    <!-- <font-awesome-icon icon="fa-solid fa-arrow-right-from-bracket" /> -->
+                    <!-- <font-awesome-icon icon="fa-solid fa-user-xmark" /> -->
+                    <font-awesome-icon icon="fa-solid fa-user-slash" />
                 </RouterLink>
             </div>
         </div>

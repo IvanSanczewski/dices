@@ -20,12 +20,10 @@
                 <!-- <span @click="storeUsers.toggleLogged">SIGN IN</span> -->
             </div>
             <div v-else class="logged">
-                <RouterLink to="/" @click="storeUsers.toggleLogged">
+                <RouterLink to="User">
                     <font-awesome-icon icon="fa-solid fa-user" /> {{ storeUsers.user.name }} 
                 </RouterLink>
-                <RouterLink to="/" @click="storeUsers.toggleLogged">
-                    <font-awesome-icon icon="fa-solid fa-arrow-right-from-bracket" />
-                </RouterLink>
+                <RouterLink to="/" @click="storeUsers.logOut">LOG OUT</RouterLink>
             </div>
         </div>
     </div>

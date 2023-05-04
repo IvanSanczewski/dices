@@ -42,6 +42,15 @@ export const useUsersStore = defineStore('users', {
             }
         },
 
+        logOut() {
+            this.user = {
+                name:'',
+                email:'',
+                password:''
+            }
+            this.toggleLogged()
+        },
+
         toggleLogged() {
             this.isLogged = !this.isLogged
         }
