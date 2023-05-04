@@ -1,7 +1,8 @@
 <template>
     <p>This is the Sign In Component</p>
 
-    <form @submit.prevent="storeUsers.signin">
+    <form @submit.prevent="storeUsers.signinTry">
+        <!-- FIXME:  V-MODEL IS NOT NEEDED IF USING REFS-->
         <input type="name" placeholder="Name" v-model="storeUsers.user.name" required>
         <input type="email" placeholder="Email" v-model="storeUsers.user.email" required>
         <input type="password" placeholder="Password" v-model="storeUsers.user.password" required>
@@ -10,10 +11,10 @@
 </template>
 
 <script setup>
-// import { useDicesStore } from "@/stores/dices"
+//TODO: IMPORT REF
 import { useUsersStore } from "@/stores/users";
 
-// const storeDices = useDicesStore()
+// USE REFS
 const storeUsers = useUsersStore()
 
 </script>

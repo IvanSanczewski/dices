@@ -30,6 +30,7 @@ export const useUsersStore = defineStore('users', {
                     throw new Error('Could not Sign In')
                 } 
                 
+                //TODO: USE RESPONSE OBJECT
                 console.log(response);
                 console.log(response.user);
 
