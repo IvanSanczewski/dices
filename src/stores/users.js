@@ -7,32 +7,35 @@ export const useUsersStore = defineStore('users', {
         // display
         isLogged: false,
         
+        error: null,
+
         // user data
-        user:{
-            name: '',
-            email:'',
-            password:''
-        }
+        user: null
     }),
 
     actions: {
         // function called on submit 
-        async signin() {
-            console.log(this.user.name, this.user.email, this.user.password)
+        async signin(email, password, displayName) {
+            console.log('name:',displayName, 'email:', email, 'psw:', password)
             
             // in try block we send user sign in info to FIREBASE
-            // promise
             try {
                 // call FIREBASE method with user email and password and store response object, method is a promise
-                const response = await projectAuth.createUserWithEmailAndPassword(this.user.email, this.user.password)
+                const response = await projectAuth.createUserWithEmailAndPassword(email, password)
                 
                 if (!response) {
                     throw new Error('Could not Sign In')
                 } 
                 
-                //TODO: USE RESPONSE OBJECT
-                console.log(response);
-                console.log(response.user);
+                await response.user.updateProfile({ displayName })
+                this.error = null
+                console.log(response.user.displayName)
+
+
+                this.user = {
+                    name: response.user.displayName,
+                    email: response.user.email
+                }
 
                 // after signing in, call toggle function to show logged user name
                 this.toggleLogged()
