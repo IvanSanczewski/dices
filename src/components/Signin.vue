@@ -25,6 +25,4 @@ const signinTry = async () => {
     await storeUsers.signin(email.value, password.value, displayName.value)
 }
 
-
-
 </script>

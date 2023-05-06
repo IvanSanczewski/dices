@@ -99,7 +99,7 @@
     margin: 0
 }
 
-.score {
+.plays--results {
     display: flex;
     flex-direction: column;
     gap: .5rem

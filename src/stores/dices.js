@@ -187,6 +187,23 @@ export const useDicesStore = defineStore('dices', {
             this.displayScore = true
             this.userPlay.actualScore = score
             console.log(this.userPlay.actualScore);
+        },
+
+        playAgain() {
+            this.displayScore = false
+            this.sumReady = false
+            this.rollDices()
+
+            // TODO: MAKE ALL VALUES 0
+        },
+
+        newDicesGame() {
+            this.totalDices = 0
+            this.displayScore = false
+            this.sumReady = false    
+            this.nowPlaying = false
+
+            // TODO: START NEW GAME, PUSH ROUTE
         }
     }
 })
