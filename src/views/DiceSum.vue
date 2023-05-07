@@ -72,8 +72,9 @@
             </div>
            
 
-            <!-- <button @click="storeDices.deleteDice" class="dices-btn">Delete last dice</button> -->
-            <button @click="goToFirstPlay()"
+
+            <!-- <button @click="goToFirstPlay()" -->
+            <button @click="storeDices.goToFirstPlay()"
                 v-if="storeDices.sumReady && !storeDices.nowPlaying"
                 class="dices-btn ">
                 ROLL'EM!!
@@ -81,8 +82,8 @@
             <div v-if="storeDices.nowPlaying" class="dices-btn">NOW PLAYING!!</div>
         </div>
 
-
-        <div class="plays--results">
+        <!-- FIXME: PLAYS SHOULD APPEAR ONLY WHEN totalDices & dices.set ARE NOT UNDEFINED -->
+        <div v-if="storeDices.nowPlaying" class="plays--results">
             <div class="dice--play" v-for="play, index in storeDices.dices.plays" :key="play.index">
                 Play {{ index + 1 }} :{{ play.join(' + ') }} =
             
@@ -93,7 +94,8 @@
                         :class="{'filled' : storeDices.userPlay.answered[index]}"
                         type="number"
                         :disabled="storeDices.userPlay.answered[index]"
-                        class="user-answer">
+                        class="user-answer"
+                        required>
                     <div v-if="storeDices.displayScore">  
                         <div v-if="storeDices.userPlay.answersAreCorrect[index]" class="dice--play__correct"> 
                             <font-awesome-icon icon="fa-solid fa-check" />
@@ -104,7 +106,7 @@
                     </div>
             </div>
         </div>
-        <Score v-if="storeDices.displayScore" />
+        <Score class="score" v-if="storeDices.displayScore" />
     </div>
 </template>
 
@@ -128,16 +130,17 @@ const nextPlay = index => {
 }
 
 // triggers the start of the game by calling rollDices & startPlay, then puts focus on the first answer input area
-const goToFirstPlay = () => {
-    storeDices.rollDices()
-    storeDices.startPlay()
-    setTimeout(() => {
-        const firstInput = document.querySelector('.user-answer')
-        if (firstInput) {
-            firstInput.focus()
-        }
-    }, 3000)
-}
+// const goToFirstPlay = () => {
+//     console.log('FIRST PLAY');
+//     storeDices.rollDices()
+//     storeDices.startPlay()
+//     setTimeout(() => {
+//         const firstInput = document.querySelector('.user-answer')
+//         if (firstInput) {
+//             firstInput.focus()
+//         }
+//     }, 3000)
+// }
 
 
 </script>

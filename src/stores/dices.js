@@ -38,8 +38,7 @@ export const useDicesStore = defineStore('dices', {
             hihgScore:'',
             playScore:[],
             actualScore:'',
-            payResult: null,
-
+            playResult: null
         },
 
         // scores
@@ -86,7 +85,6 @@ export const useDicesStore = defineStore('dices', {
         // removes selected dice from set
         deleteDice(index) {
             console.log(index);
-            //TODO: DELETE ANY DICE FROM THE SET
             this.dices.set.splice(index, 1)
             this.sumReady = false
         },
@@ -95,6 +93,20 @@ export const useDicesStore = defineStore('dices', {
         startPlay() {
             this.nowPlaying = true
         },
+
+        // triggers the start of the game by calling rollDices & startPlay, then puts focus on the first answer input area
+        goToFirstPlay() {
+            console.log('FIRST PLAY');
+            this.rollDices()
+            this.startPlay()
+            setTimeout(() => {
+                const firstInput = document.querySelector('.user-answer')
+                if (firstInput) {
+                    firstInput.focus()
+                }
+            }, 3000)
+        },
+        
 
         // cicles through the dice set array and calls rollOneDice with the proper parameter
         rollDices() {
@@ -147,8 +159,16 @@ export const useDicesStore = defineStore('dices', {
         answerVsResult(userTotal, total, index) {
             console.log(userTotal, total, index)
             
-            if (userTotal === undefined) {
+            if (userTotal === undefined
+                || userTotal < 0
+                || userTotal === '+'
+                || userTotal === '++'
+                || userTotal === '-'
+                || userTotal === '--' 
+                || userTotal === '+-'
+                || userTotal === '--' ) {
                 userTotal = 0
+                this.userPlay.userSum[index] = 0
             }
 
             console.log(userTotal)
@@ -162,6 +182,8 @@ export const useDicesStore = defineStore('dices', {
             if (!this.userPlay.isCorrect) {
                 let difference = Math.abs(total - userTotal)
                 this.userPlay.differencePenalty.push(difference)
+                console.log(userTotal)
+                console.log(difference)
             } else {
                 this.userPlay.differencePenalty.push(0)
             }
@@ -185,23 +207,34 @@ export const useDicesStore = defineStore('dices', {
             })
             console.log(score);
             this.displayScore = true
+            this.nowPlaying = false
             this.userPlay.actualScore = score
-            console.log(this.userPlay.actualScore);
+            console.log(this.userPlay.actualScore)
         },
 
         playAgain() {
             this.displayScore = false
-            this.sumReady = false
+            this.sumReady = true
+            this.userPlay.userSum = []
+            this.userPlay.answersAreCorrect = []
+            this.userPlay.differencePenalty = []                            
+            this.userPlay.actualScore = 0                        
             this.rollDices()
-
-            // TODO: MAKE ALL VALUES 0
+            this.goToFirstPlay()
         },
-
+        
         newDicesGame() {
             this.totalDices = 0
+            this.dices.set = []
             this.displayScore = false
-            this.sumReady = false    
+            this.sumReady = true
+            this.userPlay.userSum = []
+            this.userPlay.answersAreCorrect = []
+            this.userPlay.differencePenalty = []                            
+            this.userPlay.actualScore = 0                        
             this.nowPlaying = false
+            this.rollDices()
+            this.goToFirstPlay()
 
             // TODO: START NEW GAME, PUSH ROUTE
         }
