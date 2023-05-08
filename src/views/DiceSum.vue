@@ -119,6 +119,7 @@ const storeDices = useDicesStore()
 // const storeScores = useScoresStore()
 
 
+
 // restart game when acces to avoid last play to be displayed
 storeDices.totalDices = 0
 storeDices.dices.set = []
