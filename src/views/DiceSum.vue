@@ -83,7 +83,7 @@
         </div>
 
         <!-- FIXME: PLAYS SHOULD APPEAR ONLY WHEN totalDices & dices.set ARE NOT UNDEFINED -->
-        <div v-if="storeDices.nowPlaying" class="plays--results">
+        <div class="plays--results">
             <div class="dice--play" v-for="play, index in storeDices.dices.plays" :key="play.index">
                 Play {{ index + 1 }} :{{ play.join(' + ') }} =
             

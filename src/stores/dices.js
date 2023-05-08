@@ -107,7 +107,6 @@ export const useDicesStore = defineStore('dices', {
             }, 3000)
         },
         
-
         // cicles through the dice set array and calls rollOneDice with the proper parameter
         rollDices() {
             this.dices.plays = []
@@ -219,22 +218,24 @@ export const useDicesStore = defineStore('dices', {
             this.userPlay.answersAreCorrect = []
             this.userPlay.differencePenalty = []                            
             this.userPlay.actualScore = 0                        
-            this.rollDices()
+            // this.rollDices()
             this.goToFirstPlay()
         },
         
         newDicesGame() {
             this.totalDices = 0
             this.dices.set = []
+            this.sumReady = false
+            this.nowPlaying = false
             this.displayScore = false
-            this.sumReady = true
+            this.dices.plays = []
+            this.dices.playsTotal = []
             this.userPlay.userSum = []
             this.userPlay.answersAreCorrect = []
             this.userPlay.differencePenalty = []                            
             this.userPlay.actualScore = 0                        
-            this.nowPlaying = false
-            this.rollDices()
-            this.goToFirstPlay()
+            // this.rollDices()
+            // this.goToFirstPlay()
 
             // TODO: START NEW GAME, PUSH ROUTE
         }
