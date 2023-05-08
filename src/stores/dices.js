@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import router from '../router'
 
 export const useDicesStore = defineStore('dices', {
     state: () => ({
@@ -218,26 +219,25 @@ export const useDicesStore = defineStore('dices', {
             this.userPlay.answersAreCorrect = []
             this.userPlay.differencePenalty = []                            
             this.userPlay.actualScore = 0                        
-            // this.rollDices()
             this.goToFirstPlay()
         },
         
         newDicesGame() {
-            this.totalDices = 0
-            this.dices.set = []
-            this.sumReady = false
-            this.nowPlaying = false
-            this.displayScore = false
-            this.dices.plays = []
-            this.dices.playsTotal = []
-            this.userPlay.userSum = []
-            this.userPlay.answersAreCorrect = []
-            this.userPlay.differencePenalty = []                            
-            this.userPlay.actualScore = 0                        
-            // this.rollDices()
-            // this.goToFirstPlay()
+            // this.totalDices = 0
+            // this.dices.set = []
+            // this.sumReady = false
+            // this.nowPlaying = false
+            // this.displayScore = false
+            // this.dices.plays = []
+            // this.dices.playsTotal = []
+            // this.userPlay.userSum = []
+            // this.userPlay.answersAreCorrect = []
+            // this.userPlay.differencePenalty = []                            
+            // this.userPlay.actualScore = 0                        
 
             // TODO: START NEW GAME, PUSH ROUTE
+            console.log('LETS START FROM ZERO')
+            router.push({ name: 'diceSum' })
         }
     }
 })

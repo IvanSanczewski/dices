@@ -115,9 +115,27 @@ import Score from '../components/Score.vue'
 import { useDicesStore } from '@/stores/dices'
 // import { useScoresStore } from '@/stores/scores';
 
-
 const storeDices = useDicesStore()
 // const storeScores = useScoresStore()
+
+
+// restart game when acces to avoid last play to be displayed
+storeDices.totalDices = 0
+storeDices.dices.set = []
+storeDices.sumReady = false
+storeDices.nowPlaying = false
+storeDices.displayScore = false
+storeDices.dices.plays = []
+storeDices.dices.playsTotal = []
+storeDices.userPlay.userSum = []
+storeDices.userPlay.answersAreCorrect = []
+storeDices.userPlay.differencePenalty = []                            
+storeDices.userPlay.actualScore = 0 
+
+
+
+
+
 
 // controls focus on each answer input area so it can be played without the mouse
 const nextPlay = index => {
@@ -129,18 +147,6 @@ const nextPlay = index => {
     }
 }
 
-// triggers the start of the game by calling rollDices & startPlay, then puts focus on the first answer input area
-// const goToFirstPlay = () => {
-//     console.log('FIRST PLAY');
-//     storeDices.rollDices()
-//     storeDices.startPlay()
-//     setTimeout(() => {
-//         const firstInput = document.querySelector('.user-answer')
-//         if (firstInput) {
-//             firstInput.focus()
-//         }
-//     }, 3000)
-// }
 
 
 </script>
