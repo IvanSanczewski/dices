@@ -13,7 +13,17 @@
             <button @click="storeNumbers.generateSquare" class="numbers-btn">PLAY NUMBERS!</button>
         </div>
 
-        <div class="square">
+        <div v-if="storeNumbers.squareSize === 9" class="square3">
+            <div v-for="cell, index in storeNumbers.squareValues" :key="index" class="cell">
+                <div class="cell--content">{{ cell }}</div>
+            </div>
+        </div>
+        <div v-if="storeNumbers.squareSize === 25" class="square5">
+            <div v-for="cell, index in storeNumbers.squareValues" :key="index" class="cell">
+                <div class="cell--content">{{ cell }}</div>
+            </div>
+        </div>
+        <div v-if="storeNumbers.squareSize === 49" class="square7">
             <div v-for="cell, index in storeNumbers.squareValues" :key="index" class="cell">
                 <div class="cell--content">{{ cell }}</div>
             </div>
