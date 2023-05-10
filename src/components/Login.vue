@@ -1,18 +1,25 @@
 <template>
     <p>This is the Log In Component</p>
 
-    <form @submit.prevent="storeUsers.signin">
-        <input type="email" placeholder="Email" v-model="storeUsers.user.email" required>
-        <input type="password" placeholder="Password" v-model="storeUsers.user.password" required>
-        <button>SIGN IN</button>
+    <form @submit.prevent="loginTry">
+        <input type="email" placeholder="Email" v-model="email" required>
+        <input type="password" placeholder="Password" v-model="password" required>
+        <button>LOG IN</button>
     </form>
 </template>
 
 <script setup>
-import { useDicesStore } from "@/stores/dices"
 import { useUsersStore } from "@/stores/users";
+import { ref } from 'vue'
 
-const storeDices = useDicesStore()
 const storeUsers = useUsersStore()
+
+// refs
+const email = ref('')
+const password = ref('')
+
+const loginTry = async () => {
+    await storeUsers.login(email.value, password.value)
+}
 
 </script>

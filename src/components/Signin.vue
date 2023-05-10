@@ -10,8 +10,8 @@
 </template>
 
 <script setup>
-import { useUsersStore } from "@/stores/users";
-import { ref } from "vue";
+import { useUsersStore } from '@/stores/users'
+import { ref } from 'vue'
 
 const storeUsers = useUsersStore()
 

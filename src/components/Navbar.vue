@@ -13,7 +13,7 @@
         </div>
         <div class="menu-user">
             <div v-if="!storeUsers.isLogged" class="not--logged">
-                <span>LOG IN || </span>
+                <RouterLink to="Login">LOG IN ||</RouterLink>
                 <!-- <span @click="storeUsers.toggleLogged">LOG IN || </span> -->
                 <!-- <RouterLink to="DiceSum">SIGN IN</RouterLink> -->
                 <RouterLink to="Signin">SIGN IN</RouterLink>

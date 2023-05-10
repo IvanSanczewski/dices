@@ -23,7 +23,7 @@
         </div>
         <div class="menu-user">
             <div v-if="!storeUsers.isLogged" class="not--logged">
-                <RouterLink to="/">
+                <RouterLink to="Login">
                     <font-awesome-icon icon="fa-solid fa-arrow-right-to-bracket" />
                 </RouterLink>
                 <RouterLink to="Signin">
@@ -43,7 +43,7 @@
         </div>
     </div>
                     
-         <!-- TODO: USE FOR LOG OUT            -->
+         <!-- TODO: USE TO LOG OUT USER -->
     <!-- <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" /> -->
 
 

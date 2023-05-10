@@ -7,6 +7,7 @@ export const useUsersStore = defineStore('users', {
         // display
         isLogged: false,
         
+        // errors
         error: null,
 
         // user data
@@ -30,30 +31,53 @@ export const useUsersStore = defineStore('users', {
                 await response.user.updateProfile({ displayName })
                 this.error = null
                 console.log(response.user.displayName)
-
-
+                
+                
                 this.user = {
                     name: response.user.displayName,
                     email: response.user.email
                 }
-
+                
                 // after signing in, call toggle function to show logged user name
                 this.toggleLogged()
                 router.push({ name: 'user' })
-            
-            // throw error if connection to FIREBASE failed
+                
+                // throw error if connection to FIREBASE failed
             } catch (err) {
                 console.log('Error:', err.message)
                 alert(err.message)
             }
         },
+        
+        async login(email, password) {
+            console.log('email:', email, 'psw:', password)
+            
+            // in try block we send user login info to FIREBASE
+            try {
+                // call FIREBASE method with user email and password and store response object, method is a promise
+                const response = await projectAuth.signInWithEmailAndPassword(email, password)
+                console.log(response)
+
+                this.error = null
+                
+                this.user = {
+                    name: response.user.displayName,
+                    email: response.user.email
+                }
+                
+                // after signing in, call toggle function to show logged user name
+                this.toggleLogged()
+                router.push({ name: 'user' })
+
+                // throw error if connection to FIREBASE failed
+            } catch (err) {
+                console.log('Error:', err.message)
+                alert(err.message)        
+            }
+        },
 
         logOut() {
-            this.user = {
-                name:'',
-                email:'',
-                password:''
-            }
+            this.user = null
             this.toggleLogged()
         },
 
