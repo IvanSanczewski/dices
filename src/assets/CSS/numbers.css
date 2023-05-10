@@ -25,24 +25,12 @@ sup {
     background-color: rgba(255, 255, 255, 0.5);
 }
 
-.square3 {
-    display: grid;
-    grid-template-rows: repeat(3, 90px);
-    grid-template-columns: repeat(3, 90px);
-    gap: 0.5em;
-}
 
-.square5 {
+/* the value of --square--side custom property is binded in Numbers.vue with squareSide in numbers.js store  */
+.square {
     display: grid;
-    grid-template-rows: repeat(5, 90px);
-    grid-template-columns: repeat(5, 90px);
-    gap: 0.5em;
-}
-
-.square7 {
-    display: grid;
-    grid-template-rows: repeat(7, 90px);
-    grid-template-columns: repeat(7, 90px);
+    grid-template-rows: repeat(var(--square--side), 90px);
+    grid-template-columns: repeat(var(--square--side), 90px);
     gap: 0.5em;
 }
 

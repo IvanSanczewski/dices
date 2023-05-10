@@ -3,6 +3,7 @@ import { defineStore } from 'pinia'
 export const useNumbersStore = defineStore('numbers', {
     state: () => ({
         //big square
+        squareSide: null,
         squareSize: null,
         squareValues: []
 
@@ -11,7 +12,9 @@ export const useNumbersStore = defineStore('numbers', {
     actions: {
         setSquare(side) {
             console.log(side);
+            this.squareSide = side
             this.squareSize = side * side
+            console.log(this.squareSide);
             console.log(this.squareSize);
         },
 
