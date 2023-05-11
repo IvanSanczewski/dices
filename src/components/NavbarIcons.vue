@@ -34,9 +34,7 @@
                 <RouterLink to="User">
                         <font-awesome-icon icon="fa-solid fa-user" /> {{ storeUsers.user.name }}
                 </RouterLink>
-                <RouterLink to="/" @click="storeUsers.toggleLogged">
-                    <!-- <font-awesome-icon icon="fa-solid fa-arrow-right-from-bracket" /> -->
-                    <!-- <font-awesome-icon icon="fa-solid fa-user-xmark" /> -->
+                <RouterLink to="/" @click="storeUsers.logOut">
                     <font-awesome-icon icon="fa-solid fa-user-slash" />
                 </RouterLink>
             </div>

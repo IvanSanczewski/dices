@@ -15,7 +15,6 @@ export const useUsersStore = defineStore('users', {
     }),
 
     actions: {
-        // function called on submit 
         async signin(email, password, displayName) {
             console.log('name:',displayName, 'email:', email, 'psw:', password)
             
@@ -30,6 +29,8 @@ export const useUsersStore = defineStore('users', {
                 
                 await response.user.updateProfile({ displayName })
                 this.error = null
+                console.log(response)
+                console.log(response.user)
                 console.log(response.user.displayName)
                 
                 
@@ -49,15 +50,20 @@ export const useUsersStore = defineStore('users', {
             }
         },
         
-        async login(email, password) {
+        async login(email, password, displayName) {
             console.log('email:', email, 'psw:', password)
             
             // in try block we send user login info to FIREBASE
             try {
                 // call FIREBASE method with user email and password and store response object, method is a promise
                 const response = await projectAuth.signInWithEmailAndPassword(email, password)
+                
+                await response.user.updateProfile({ displayName })
+                this.error = null
                 console.log(response)
-
+                console.log(response.user)
+                console.log(response.user.displayName)
+                
                 this.error = null
                 
                 this.user = {
@@ -68,17 +74,30 @@ export const useUsersStore = defineStore('users', {
                 // after signing in, call toggle function to show logged user name
                 this.toggleLogged()
                 router.push({ name: 'user' })
-
+                
                 // throw error if connection to FIREBASE failed
             } catch (err) {
                 console.log('Error:', err.message)
                 alert(err.message)        
             }
         },
+        
+        async logOut() {
+            console.log('LOGGING CURRENT USER OUT')
+            
 
-        logOut() {
-            this.user = null
-            this.toggleLogged()
+            try {
+                // this method signs out the current user from FIREBASE
+                await projectAuth.signOut()
+                console.log('USER LOGGED OUT')
+                
+                this.user = null
+                this.toggleLogged()
+
+            } catch (err) {
+                console.log('Error:', err.message)
+                alert(err.message)        
+            }
         },
 
         toggleLogged() {
