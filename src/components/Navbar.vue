@@ -14,11 +14,9 @@
         <div class="menu-user">
             <div v-if="!storeUsers.isLogged" class="not--logged">
                 <RouterLink to="Login">LOG IN ||</RouterLink>
-                <!-- <span @click="storeUsers.toggleLogged">LOG IN || </span> -->
-                <!-- <RouterLink to="DiceSum">SIGN IN</RouterLink> -->
                 <RouterLink to="Signin">SIGN IN</RouterLink>
-                <!-- <span @click="storeUsers.toggleLogged">SIGN IN</span> -->
             </div>
+            
             <div v-else class="logged">
                 <RouterLink to="User">
                     <font-awesome-icon icon="fa-solid fa-user" /> {{ storeUsers.user.name }} 
