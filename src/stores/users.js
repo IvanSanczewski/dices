@@ -11,7 +11,7 @@ export const useUsersStore = defineStore('users', {
         error: null,
 
         // user data
-        user: null
+        user: {}
     }),
 
     actions: {
@@ -72,7 +72,7 @@ export const useUsersStore = defineStore('users', {
                 }
                 
                 // after signing in, call toggle function to show logged user name
-                this.toggleLogged()
+                // this.toggleLogged()
                 router.push({ name: 'user' })
                 
                 // throw error if connection to FIREBASE failed
@@ -91,7 +91,7 @@ export const useUsersStore = defineStore('users', {
                 await projectAuth.signOut()
                 console.log('USER LOGGED OUT')
                 
-                this.user = null
+                this.user = {}
                 this.toggleLogged()
 
             } catch (err) {
@@ -100,7 +100,20 @@ export const useUsersStore = defineStore('users', {
             }
         },
 
+        getUser() {
+            projectAuth.onAuthStateChanged(currentUser => {
+                console.log('USER STATE CHANGE' ,currentUser)
+                if (currentUser) {
+                    console.log(`USER ${currentUser.displayName} IS LOGGED WITH THIS EMAIL: ${currentUser.email}`)
+                    this.user.name = currentUser.displayName
+                    this.user.email = currentUser.email
+                    this.toggleLogged()
+                }
+            })
+        },
+
         toggleLogged() {
+            console.log('isLogged TOGGLED')
             this.isLogged = !this.isLogged
         }
     }

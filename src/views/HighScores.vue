@@ -7,6 +7,7 @@
         <p style="color: black">{{ score[index].score }}</p>
       </div>
     </div>
+
     <!-- <button @click="storeScores.addNewHighScore('dices', 'Tula', 1250)">send high score</button -->
 
 </template>

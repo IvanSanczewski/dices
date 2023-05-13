@@ -31,8 +31,13 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 import { useGamesStore } from '@/stores/games.js'
+// import { useUsersStore} from '@/stores/users.js'
 
 const storeGames = useGamesStore()
+// const storeUsers = useUsersStore()
+
+
+
 
 // storeGames.gamesLinks()
 </script>
