@@ -18,14 +18,23 @@ export const useScoresStore = defineStore('scores', {
             {
                 game: 'numbers',
                 scores: [
-                    100,
-                    230,
-                    560,
-                    330,
-                    1900,
-                    1250,
+                    {name: 'Gabriele', score: 100},
+                    {name: 'Liene', score: 560},
+                    {name: 'Jolanta', score: 230},
+                    {name: 'Ivan', score: 1900},
+                    {name: 'Pau', score: 1250},
                 ]
-            },
+            },   
+            {
+                game: 'colours',
+                scores: [
+                    {name: 'Gabriele', score: 2000},
+                    {name: 'Liene', score: 1560},
+                    {name: 'Jolanta', score: 930},
+                    {name: 'Ivan', score: 1800},
+                    {name: 'Pau', score: 550},
+                ]
+            }   
         ]
     }),
 
