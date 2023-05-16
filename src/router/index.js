@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { projectAuth } from '../firebase/config'
 
 import Home from '@/views/Home.vue'
 import DiceSum from '@/views/DiceSum.vue'
@@ -10,7 +11,17 @@ import Signin from '@/components/Signin.vue'
 import Login from '@/components/Login.vue'
 
 
+// auth guard
 
+const requireAuth = (to, from, next) => {
+  let user = projectAuth.currentUser
+  console.log(user)
+  if (!user) { 
+    next({name: 'login'})
+  } else {
+    next()
+  }
+}
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,7 +49,8 @@ const router = createRouter({
     {
       path: '/highScores',
       name: 'highScores',
-      component: HighScores
+      component: HighScores,
+      beforeEnter: requireAuth
     },
     {
       path: '/signin',
