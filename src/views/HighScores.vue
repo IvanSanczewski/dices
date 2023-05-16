@@ -1,18 +1,11 @@
 <template>
   <h2>This is the HIGH SCORES page</h2>
-    <div v-for="item, index in storeScores.gameHighScore" :key="index" class="high__score__games">
-      <p>{{ index }} {{ item.game }}</p>
-       <div v-for="score, index in item" :key="index" class="high__score__games">
-        <p>{{ score }}</p>
-
-       </div>
-
-      
-      <!-- <p>{{ item.scores }}</p> -->
-    </div>
-
-    <!-- <button @click="storeScores.addNewHighScore('dices', 'Tula', 1250)">send high score</button -->
-
+    <div v-for="game in storeScores.gameHighScore" :key="game.game" class="high__score__games">
+      <p style="fontWeight: 900">{{ game.game }}</p>
+      <div v-for="score in game.scores" :key="score.name">
+        <p>{{ score.name }} - {{ score.score }}</p>
+      </div>
+    </div>  
 </template>
 
 <script setup>
