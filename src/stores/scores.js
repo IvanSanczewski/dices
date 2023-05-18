@@ -1,5 +1,7 @@
 import { defineStore } from 'pinia'
+import { useUsersStore } from '../stores/users'
 
+// const usersStore = useUsersStore()
 
 export const useScoresStore = defineStore('scores', {
     state: () => ({
@@ -9,10 +11,10 @@ export const useScoresStore = defineStore('scores', {
                 game: 'dices',
                 scores: [
                     {name: 'Gabriele', score: 1250},
+                    {name: 'Pau', score: 1250},
+                    {name: 'Ivan', score: 900},
                     {name: 'Liene', score: 120},
                     {name: 'Jolanta', score: 30},
-                    {name: 'Ivan', score: 900},
-                    {name: 'Pau', score: 1250},
                 ]
             },
             {
@@ -51,5 +53,15 @@ export const useScoresStore = defineStore('scores', {
                 this.gameHighScore.pop()
             }
         }   
+    },
+
+    isHighscore(game, score) {
+        const user = usersStore.user.name
+        console.log(game, score, user)
+        console.log(this.gameHighScore[0].scores[4].name, '-', this.gameHighScore[0].scores[4].score)
+
+        // if (score >= this.gameHighScore) {
+
+        // }
     }
 })

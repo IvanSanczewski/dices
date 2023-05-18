@@ -2,6 +2,7 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/auth'
 
+
 const firebaseConfig = {
     apiKey: "AIzaSyAfcctnPJ0sCLJdGNpU8oV7_mTX-1OoTxA",
     authDomain: "games-f3b53.firebaseapp.com",
