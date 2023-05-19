@@ -1,10 +1,9 @@
 import { defineStore } from 'pinia'
 import router from '../router'
-import { useScoresStore } from '../stores/scores.js'
 
-const scoresStores = useScoresStore()
 
 export const useDicesStore = defineStore('dices', {
+
     state: () => ({
         // game settings
         totalDices: 0,
@@ -213,8 +212,9 @@ export const useDicesStore = defineStore('dices', {
             this.nowPlaying = false
             this.userPlay.actualScore = score
             console.log(this.userPlay.actualScore)
+            // console.log(this.scoresStore.gameHighScore[0].game)
 
-            scoresStores.isHighscore('dices', score)
+            // this.scoresStore.isHighscore('dices', score)
         },
 
         playAgain() {

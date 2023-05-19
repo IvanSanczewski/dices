@@ -9,13 +9,16 @@
 <script setup>
 import { useDicesStore } from '@/stores/dices'
 import { useScoresStore } from '@/stores/scores'
+import { useUsersStore } from '@/stores/users'
 
 
 const storeDices = useDicesStore()
 const storeScores = useScoresStore()
+const storeUsers = useUsersStore()
 
+storeScores.isHighscore('dices', storeUsers.user.name ,storeDices.userPlay.actualScore)
 
-storeScores.addNewHighScore('dices', 'Mika', storeDices.userPlay.actualScore)
+// storeScores.addNewHighScore('dices', 'Mika', storeDices.userPlay.actualScore)
 
 
 

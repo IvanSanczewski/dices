@@ -1,7 +1,6 @@
 import { defineStore } from 'pinia'
-import { useUsersStore } from '../stores/users'
+import router from '../router'
 
-// const usersStore = useUsersStore()
 
 export const useScoresStore = defineStore('scores', {
     state: () => ({
@@ -52,16 +51,16 @@ export const useScoresStore = defineStore('scores', {
                 // TODO: ORDER ARRAY
                 this.gameHighScore.pop()
             }
-        }   
+        }, 
+        
+        isHighscore(game, user, score) {
+            console.log(game, score, user)
+            console.log(this.gameHighScore[0].scores[4].name, '-', this.gameHighScore[0].scores[4].score)
+    
+            // if (score >= this.gameHighScore) {
+    
+            // }
+        }
     },
 
-    isHighscore(game, score) {
-        const user = usersStore.user.name
-        console.log(game, score, user)
-        console.log(this.gameHighScore[0].scores[4].name, '-', this.gameHighScore[0].scores[4].score)
-
-        // if (score >= this.gameHighScore) {
-
-        // }
-    }
 })
