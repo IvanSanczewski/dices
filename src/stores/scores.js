@@ -9,6 +9,7 @@ export const useScoresStore = defineStore('scores', {
             {
                 game: 'dices',
                 scores: [
+                    // TODO: use getter or any method that sorts the array according to score
                     {name: 'Gabriele', score: 1250},
                     {name: 'Pau', score: 1250},
                     {name: 'Ivan', score: 900},
@@ -43,7 +44,6 @@ export const useScoresStore = defineStore('scores', {
         addNewHighScore(game, user, score){
             console.log('game:', game, 'user:', user, 'score:', score);
             if (score === this.gameHighScore[0].scores.length-1) {
-                alert('CONGRATS! NEW SCORE SET!')
                 this.gameHighScore[0].scores.push({name:user, score})
             } else if (score > this.gameHighScore[0].scores.length-1) {
                 alert('CONGRATS! NEW SCORE SET!')
@@ -56,10 +56,24 @@ export const useScoresStore = defineStore('scores', {
         isHighscore(game, user, score) {
             console.log(game, score, user)
             console.log(this.gameHighScore[0].scores[4].name, '-', this.gameHighScore[0].scores[4].score)
-    
-            // if (score >= this.gameHighScore) {
-    
-            // }
+            
+            // FIXME: change [0] into a var that uses game
+            const lowerHighscore = this.gameHighScore[0].scores[4]
+            
+            if (score > lowerHighscore) {
+                alert ('CONGRATULATIONS! YOU HAVE JUST SET A NEW HIGHSCORE!')
+                this.gameHighScore[0].scores.pop()
+                this.gameHighScore[0].scores.push({name: user, score})
+
+            } else if ( score === lowerHighscore  ) {
+
+            }
+
+
+
+
+
+
         }
     },
 
