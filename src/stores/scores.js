@@ -40,6 +40,11 @@ export const useScoresStore = defineStore('scores', {
         ]
     }),
 
+    getters: {
+        // TODO: sort the array to be used to display and check, if there is a highscore it should be pushed to the state array
+        dicesHighscoresOrdered: (state) => state.gameHighScore[0].scores.sort()
+    },
+
     actions: {
         addNewHighScore(game, user, score){
             console.log('game:', game, 'user:', user, 'score:', score);
@@ -58,14 +63,16 @@ export const useScoresStore = defineStore('scores', {
             console.log(this.gameHighScore[0].scores[4].name, '-', this.gameHighScore[0].scores[4].score)
             
             // FIXME: change [0] into a var that uses game
-            const lowerHighscore = this.gameHighScore[0].scores[4]
-            
+            const lowerHighscore = this.gameHighScore[0].scores[4].score
+            console.log(lowerHighscore)
+
             if (score > lowerHighscore) {
                 alert ('CONGRATULATIONS! YOU HAVE JUST SET A NEW HIGHSCORE!')
                 this.gameHighScore[0].scores.pop()
                 this.gameHighScore[0].scores.push({name: user, score})
-
+                
             } else if ( score === lowerHighscore  ) {
+                alert ('CONGRATULATIONS! YOU HAVE JUST SET A NEW HIGHSCORE!')
 
             }
 
