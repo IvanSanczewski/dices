@@ -9,12 +9,11 @@ export const useScoresStore = defineStore('scores', {
             {
                 game: 'dices',
                 scores: [
-                    // TODO: use getter or any method that sorts the array according to score
-                    {name: 'Gabriele', score: 1250},
+                    {name: 'Liene', score: 120},
                     {name: 'Pau', score: 1250},
                     {name: 'Ivan', score: 900},
-                    {name: 'Liene', score: 120},
                     {name: 'Jolanta', score: 30},
+                    {name: 'Gabriele', score: 1250}
                 ]
             },
             {
@@ -24,7 +23,7 @@ export const useScoresStore = defineStore('scores', {
                     {name: 'Liene', score: 560},
                     {name: 'Jolanta', score: 230},
                     {name: 'Ivan', score: 1900},
-                    {name: 'Pau', score: 1250},
+                    {name: 'Pau', score: 1250}
                 ]
             },   
             {
@@ -34,15 +33,29 @@ export const useScoresStore = defineStore('scores', {
                     {name: 'Liene', score: 1560},
                     {name: 'Jolanta', score: 930},
                     {name: 'Ivan', score: 1800},
-                    {name: 'Pau', score: 550},
+                    {name: 'Pau', score: 550}
                 ]
             }   
         ]
     }),
 
     getters: {
-        // TODO: sort the array to be used to display and check, if there is a highscore it should be pushed to the state array
-        dicesHighscoresOrdered: (state) => state.gameHighScore[0].scores.sort()
+        // reads the original arrays of objects and sorts, therefore the array displayed in the template is already sorted
+        dicesHighscoresOrdered: (state) => {
+            state.gameHighScore[0].scores.sort((a, z) => {
+                if (a.score > z.score) return -1
+                if (z.score > a.score) return 1
+                return 0
+            })
+        },
+
+        // numbersHighscoresOrdered: (state) => {
+        //     state.gameHighScore[0].scores.sort((a, z) => {
+        //         if (a.score > z.score) return -1
+        //         if (z.score > a.score) return 1
+        //         return 0
+        //     })
+        // },
     },
 
     actions: {
