@@ -48,14 +48,20 @@ export const useScoresStore = defineStore('scores', {
                 return 0
             })
         },
-
-        // numbersHighscoresOrdered: (state) => {
-        //     state.gameHighScore[0].scores.sort((a, z) => {
-        //         if (a.score > z.score) return -1
-        //         if (z.score > a.score) return 1
-        //         return 0
-        //     })
-        // },
+        numbersHighscoresOrdered: (state) => {
+            state.gameHighScore[1].scores.sort((a, z) => {
+                if (a.score > z.score) return -1
+                if (z.score > a.score) return 1
+                return 0
+            })
+        },
+        colorsHighscoresOrdered: (state) => {
+            state.gameHighScore[2].scores.sort((a, z) => {
+                if (a.score > z.score) return -1
+                if (z.score > a.score) return 1
+                return 0
+            })
+        },
     },
 
     actions: {
