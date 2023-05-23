@@ -29,8 +29,8 @@ export const useScoresStore = defineStore('scores', {
             {
                 game: 'colours',
                 scores: [
-                    {name: 'Gabriele', score: 2000},
                     {name: 'Liene', score: 1560},
+                    {name: 'Gabriele', score: 2000},
                     {name: 'Jolanta', score: 930},
                     {name: 'Ivan', score: 1800},
                     {name: 'Pau', score: 550}
