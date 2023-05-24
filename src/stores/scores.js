@@ -65,18 +65,6 @@ export const useScoresStore = defineStore('scores', {
     },
 
     actions: {
-        addNewHighScore(game, user, score){
-            console.log('game:', game, 'user:', user, 'score:', score);
-            if (score === this.gameHighScore[0].scores.length-1) {
-                this.gameHighScore[0].scores.push({name:user, score})
-            } else if (score > this.gameHighScore[0].scores.length-1) {
-                alert('CONGRATS! NEW SCORE SET!')
-                this.gameHighScore[0].scores.push({name:user,score: score})
-                // TODO: ORDER ARRAY
-                this.gameHighScore.pop()
-            }
-        }, 
-        
         isHighscore(game, user, score) {
             console.log(game, score, user)
             console.log(this.gameHighScore[0].scores[4].name, '-', this.gameHighScore[0].scores[4].score)

@@ -18,8 +18,6 @@ const storeUsers = useUsersStore()
 
 storeScores.isHighscore('dices', storeUsers.user.name ,storeDices.userPlay.actualScore)
 
-// storeScores.addNewHighScore('dices', 'Mika', storeDices.userPlay.actualScore)
-
 
 
 </script>
