@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import { projectFirestore } from '../firebase/config'
 import router from '../router'
 
 
@@ -36,27 +37,31 @@ export const useScoresStore = defineStore('scores', {
                     {name: 'Pau', score: 550}
                 ]
             }   
-        ]
+        ],
+        gameHighScores: []
     }),
 
     getters: {
         // reads the original arrays of objects and sorts, therefore the array displayed in the template is already sorted
         dicesHighscoresOrdered: (state) => {
-            state.gameHighScore[0].scores.sort((a, z) => {
+            state.gameHighScores[0].scores.sort((a, z) => {
+                console.log('NOW SORTING 1')
                 if (a.score > z.score) return -1
                 if (z.score > a.score) return 1
                 return 0
             })
         },
         numbersHighscoresOrdered: (state) => {
-            state.gameHighScore[1].scores.sort((a, z) => {
+            state.gameHighScores[1].scores.sort((a, z) => {
+                console.log('NOW SORTING 2')
                 if (a.score > z.score) return -1
                 if (z.score > a.score) return 1
                 return 0
             })
         },
         colorsHighscoresOrdered: (state) => {
-            state.gameHighScore[2].scores.sort((a, z) => {
+            state.gameHighScores[2].scores.sort((a, z) => {
+                console.log('NOW SORTING 3')
                 if (a.score > z.score) return -1
                 if (z.score > a.score) return 1
                 return 0
@@ -65,18 +70,43 @@ export const useScoresStore = defineStore('scores', {
     },
 
     actions: {
+        async getHighScores () {
+            const response = await projectFirestore.collection('scores').get()
+            let responseGame = response.docs.map(document => {
+                return { ...document.data()} 
+            })
+            console.log(responseGame)
+            this.gameHighScores = responseGame[0].gameHighScores
+            console.log(this.gameHighScores)
+        },
+
         isHighscore(game, user, score) {
             console.log(game, score, user)
-            console.log(this.gameHighScore[0].scores[4].name, '-', this.gameHighScore[0].scores[4].score)
+
+
+            const gameIndex = this.gameHighScores.findIndex((item) => item.game === game);
+            console.log(gameIndex)
             
+            if (gameIndex === -1) {
+              // Game not found, handle accordingly
+              return;
+            }
+            console.log(this.gameHighScores)
+            console.log(this.gameHighScores[gameIndex])
+            console.log(this.gameHighScores[gameIndex].scores.length)
+            console.log(this.gameHighScores[gameIndex].scores)
+
             // FIXME: change [0] into a var that uses game
-            const lowerHighscore = this.gameHighScore[0].scores[4].score
+
+
+
+            const lowerHighscore = this.gameHighScores[gameIndex].scores[this.gameHighScores[gameIndex].scores.length -1].score
             console.log(lowerHighscore)
 
             if (score > lowerHighscore) {
                 alert ('CONGRATULATIONS! YOU HAVE JUST SET A NEW HIGHSCORE!')
-                this.gameHighScore[0].scores.pop()
-                this.gameHighScore[0].scores.push({name: user, score})
+                this.gameHighScores[gameIndex].scores.pop()
+                this.gameHighScores[gameIndex].scores.push({name: user, score})
                 
             } else if ( score === lowerHighscore  ) {
                 alert ('CONGRATULATIONS! YOU HAVE JUST SET A NEW HIGHSCORE!')

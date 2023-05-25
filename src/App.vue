@@ -5,8 +5,10 @@ import Navbar from '@/components/Navbar.vue'
 import NavbarIcons from '@/components/NavbarIcons.vue'
 import Footer from '@/components/Footer.vue'
 import { useUsersStore } from './stores/users.js'
+import { useScoresStore } from './stores/scores.js'
 
 const storeUsers = useUsersStore()
+const storeScores = useScoresStore()
 
 const mobile = ref(false)
 console.log(mobile.value)
@@ -17,6 +19,7 @@ function toggleMobileMenu(mobile) {
 toggleMobileMenu(mobile)
 
 storeUsers.getUser()
+storeScores.getHighScores()
 
 
 </script>

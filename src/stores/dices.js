@@ -212,8 +212,8 @@ export const useDicesStore = defineStore('dices', {
             this.nowPlaying = false
             this.userPlay.actualScore = score
             console.log(this.userPlay.actualScore)
-            // console.log(this.scoresStore.gameHighScore[0].game)
 
+            // to be used if stores share data and allow calling other store functions
             // this.scoresStore.isHighscore('dices', score)
         },
 
