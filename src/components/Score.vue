@@ -17,6 +17,7 @@ const storeScores = useScoresStore()
 const storeUsers = useUsersStore()
 
 if (storeUsers.user.name) {
+    console.log('dices', storeUsers.user.name ,storeDices.userPlay.actualScore)
     storeScores.isHighscore('dices', storeUsers.user.name ,storeDices.userPlay.actualScore)
 }
 
