@@ -16,7 +16,9 @@ const storeDices = useDicesStore()
 const storeScores = useScoresStore()
 const storeUsers = useUsersStore()
 
-storeScores.isHighscore('dices', storeUsers.user.name ,storeDices.userPlay.actualScore)
+if (storeUsers.user.name) {
+    storeScores.isHighscore('dices', storeUsers.user.name ,storeDices.userPlay.actualScore)
+}
 
 
 
