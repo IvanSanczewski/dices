@@ -6,38 +6,6 @@ import router from '../router'
 export const useScoresStore = defineStore('scores', {
     state: () => ({
         // games
-        gameHighScore: [
-            {
-                game: 'dices',
-                scores: [
-                    {name: 'Liene', score: 120},
-                    {name: 'Pau', score: 1250},
-                    {name: 'Ivan', score: 900},
-                    {name: 'Jolanta', score: 30},
-                    {name: 'Gabriele', score: 1250}
-                ]
-            },
-            {
-                game: 'numbers',
-                scores: [
-                    {name: 'Gabriele', score: 100},
-                    {name: 'Liene', score: 560},
-                    {name: 'Jolanta', score: 230},
-                    {name: 'Ivan', score: 1900},
-                    {name: 'Pau', score: 1250}
-                ]
-            },   
-            {
-                game: 'colours',
-                scores: [
-                    {name: 'Liene', score: 1560},
-                    {name: 'Gabriele', score: 2000},
-                    {name: 'Jolanta', score: 930},
-                    {name: 'Ivan', score: 1800},
-                    {name: 'Pau', score: 550}
-                ]
-            }   
-        ],
         gameHighScores: []
     }),
 
