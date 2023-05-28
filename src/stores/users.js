@@ -11,6 +11,7 @@ export const useUsersStore = defineStore('users', {
         error: null,
 
         // user data
+        // TODO: MUST CONTAIN HIGHSCORES
         user: {}
     }),
 

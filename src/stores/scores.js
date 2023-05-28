@@ -9,6 +9,8 @@ export const useScoresStore = defineStore('scores', {
         gameHighScores: []
     }),
 
+
+    // CHECK UNDEFINED VALUES IN GETTERS, HOW DO THEY WORK IN VUE
     getters: {
         // reads the original arrays of objects and sorts, therefore the array displayed in the template is already sorted
         dicesHighscoresOrdered: (state) => {
@@ -51,7 +53,6 @@ export const useScoresStore = defineStore('scores', {
         isHighscore(game, user, score) {
             console.log(game, score, user)
 
-
             const gameIndex = this.gameHighScores.findIndex((item) => item.game === game);
             console.log(gameIndex)
             
@@ -64,29 +65,18 @@ export const useScoresStore = defineStore('scores', {
             console.log(this.gameHighScores[gameIndex].scores.length)
             console.log(this.gameHighScores[gameIndex].scores)
 
-            // FIXME: change [0] into a var that uses game
-
-
-
             const lowerHighscore = this.gameHighScores[gameIndex].scores[this.gameHighScores[gameIndex].scores.length -1].score
             console.log(lowerHighscore)
 
+            //TODO: KEEP AS MANY HIGHSCORES AS NEEDED IF THERE ARE TIED RESULTS
             if (score > lowerHighscore) {
                 alert ('CONGRATULATIONS! YOU HAVE JUST SET A NEW HIGHSCORE!')
+                // FIXME: CHANGE TO PUT METHOD
                 this.gameHighScores[gameIndex].scores.pop()
                 this.gameHighScores[gameIndex].scores.push({name: user, score})
-                
             } else if ( score === lowerHighscore  ) {
                 alert ('CONGRATULATIONS! YOU HAVE JUST SET A NEW HIGHSCORE!')
-
             }
-
-
-
-
-
-
         }
     },
-
 })
