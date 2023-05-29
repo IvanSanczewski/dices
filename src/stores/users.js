@@ -85,8 +85,6 @@ export const useUsersStore = defineStore('users', {
         
         async logOut() {
             console.log('LOGGING CURRENT USER OUT')
-            
-
             try {
                 // this method signs out the current user from FIREBASE
                 await projectAuth.signOut()
@@ -116,6 +114,11 @@ export const useUsersStore = defineStore('users', {
         toggleLogged() {
             console.log('isLogged TOGGLED')
             this.isLogged = !this.isLogged
+        },
+
+        //TODO: CREATE A METHOD TO ADD THE LAST FIVE SOCRES AND SHOW IF TOP FIVE
+        addScore(game, score) {
+            console.log(game, score);
         }
     }
 })
