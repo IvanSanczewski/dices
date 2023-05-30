@@ -33,11 +33,13 @@ export const useUsersStore = defineStore('users', {
                 console.log(response)
                 console.log(response.user)
                 console.log(response.user.displayName)
-                
+                console.log(response.user.uid)
+
                 
                 this.user = {
                     name: response.user.displayName,
-                    email: response.user.email
+                    email: response.user.email,
+                    id: response.user.uid
                 }
                 
                 // after signing in, call toggle function to show logged user name
@@ -64,12 +66,14 @@ export const useUsersStore = defineStore('users', {
                 console.log(response)
                 console.log(response.user)
                 console.log(response.user.displayName)
+                console.log(response.user.uid)
                 
                 this.error = null
                 
                 this.user = {
                     name: response.user.displayName,
-                    email: response.user.email
+                    email: response.user.email,
+                    id: response.user.uid
                 }
                 
                 // after signing in, call toggle function to show logged user name
