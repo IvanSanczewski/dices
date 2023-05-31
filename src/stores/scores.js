@@ -71,9 +71,10 @@ export const useScoresStore = defineStore('scores', {
             //TODO: KEEP AS MANY HIGHSCORES AS NEEDED IF THERE ARE TIED RESULTS
             if (score > lowerHighscore) {
                 alert ('CONGRATULATIONS! YOU HAVE JUST SET A NEW HIGHSCORE!')
-                // FIXME: CHANGE TO PUT METHOD
+                //TODO: CHANGE TO PUT METHOD
                 this.gameHighScores[gameIndex].scores.pop()
-                this.gameHighScores[gameIndex].scores.push({name: user, score})
+                //FIXME: READ UID FROM RESPONSE FETCH
+                this.gameHighScores[gameIndex].scores.push({name: user, score, uid})
             } else if ( score === lowerHighscore  ) {
                 alert ('CONGRATULATIONS! YOU HAVE JUST SET A NEW HIGHSCORE!')
             }
