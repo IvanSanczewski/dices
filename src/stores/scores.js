@@ -6,41 +6,11 @@ import router from '../router'
 export const useScoresStore = defineStore('scores', {
     state: () => ({
         // games
-        gameHighScore: [
-            {
-                game: 'dices',
-                scores: [
-                    {name: 'Liene', score: 120},
-                    {name: 'Pau', score: 1250},
-                    {name: 'Ivan', score: 900},
-                    {name: 'Jolanta', score: 30},
-                    {name: 'Gabriele', score: 1250}
-                ]
-            },
-            {
-                game: 'numbers',
-                scores: [
-                    {name: 'Gabriele', score: 100},
-                    {name: 'Liene', score: 560},
-                    {name: 'Jolanta', score: 230},
-                    {name: 'Ivan', score: 1900},
-                    {name: 'Pau', score: 1250}
-                ]
-            },   
-            {
-                game: 'colours',
-                scores: [
-                    {name: 'Liene', score: 1560},
-                    {name: 'Gabriele', score: 2000},
-                    {name: 'Jolanta', score: 930},
-                    {name: 'Ivan', score: 1800},
-                    {name: 'Pau', score: 550}
-                ]
-            }   
-        ],
         gameHighScores: []
     }),
 
+
+    // CHECK UNDEFINED VALUES IN GETTERS, HOW DO THEY WORK IN VUE
     getters: {
         // reads the original arrays of objects and sorts, therefore the array displayed in the template is already sorted
         dicesHighscoresOrdered: (state) => {
@@ -83,7 +53,6 @@ export const useScoresStore = defineStore('scores', {
         isHighscore(game, user, score) {
             console.log(game, score, user)
 
-
             const gameIndex = this.gameHighScores.findIndex((item) => item.game === game);
             console.log(gameIndex)
             
@@ -96,29 +65,19 @@ export const useScoresStore = defineStore('scores', {
             console.log(this.gameHighScores[gameIndex].scores.length)
             console.log(this.gameHighScores[gameIndex].scores)
 
-            // FIXME: change [0] into a var that uses game
-
-
-
             const lowerHighscore = this.gameHighScores[gameIndex].scores[this.gameHighScores[gameIndex].scores.length -1].score
             console.log(lowerHighscore)
 
+            //TODO: KEEP AS MANY HIGHSCORES AS NEEDED IF THERE ARE TIED RESULTS
             if (score > lowerHighscore) {
                 alert ('CONGRATULATIONS! YOU HAVE JUST SET A NEW HIGHSCORE!')
+                //TODO: CHANGE TO PUT METHOD
                 this.gameHighScores[gameIndex].scores.pop()
-                this.gameHighScores[gameIndex].scores.push({name: user, score})
-                
+                //FIXME: READ UID FROM RESPONSE FETCH
+                this.gameHighScores[gameIndex].scores.push({name: user, score, uid})
             } else if ( score === lowerHighscore  ) {
                 alert ('CONGRATULATIONS! YOU HAVE JUST SET A NEW HIGHSCORE!')
-
             }
-
-
-
-
-
-
         }
     },
-
 })

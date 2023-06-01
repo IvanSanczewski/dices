@@ -11,6 +11,7 @@ export const useNumbersStore = defineStore('numbers', {
 
     actions: {
         setSquare(side) {
+            this.squareValues = []
             console.log(side);
             this.squareSide = side
             this.squareSize = side * side

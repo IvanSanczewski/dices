@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import router from '../router'
+// import router from '../router'
 
 
 export const useDicesStore = defineStore('dices', {
@@ -10,7 +10,6 @@ export const useDicesStore = defineStore('dices', {
         sumReady: false,    
         nowPlaying: false,
         displayScore: false,
-
 
         // rolling dices
         play:[],
@@ -52,22 +51,9 @@ export const useDicesStore = defineStore('dices', {
         }
     }),
 
-    // WON'T WORK IF VIE DEVTOOLS IS NOT ACTIVE >> SOLVED IN DELETE DICE, THOUGH IS NOT THE IDEAL SOLUTION
-    // getters: {
-    //     diceSetComplete: (state) => {
-    //         if (state.totalDices != 0) {
-    //             return state.sumReady = 
-    //                 (state.dices.set.length === state.totalDices) ? true : false
-    //         }
-    //     }
-    // },
-
     actions: {
         // set the number of dices to roll (6, 10, 12)
         dicesCount(value) {
-            // if (this.totalDices !== 0) {
-            //     this.totalDices = value
-            // }
             this.totalDices !== 0 ? alert('The number of dices is already set') : this.totalDices = value
         },
   
@@ -82,7 +68,6 @@ export const useDicesStore = defineStore('dices', {
                     this.sumReady = true
                 }
             } 
-            //TODO: CALL shuffleSet() TO RANDOMLY DISPLAY THE SET
         },
 
         // removes selected dice from set

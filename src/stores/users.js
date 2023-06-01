@@ -11,6 +11,7 @@ export const useUsersStore = defineStore('users', {
         error: null,
 
         // user data
+        // TODO: MUST CONTAIN HIGHSCORES
         user: {}
     }),
 
@@ -32,11 +33,13 @@ export const useUsersStore = defineStore('users', {
                 console.log(response)
                 console.log(response.user)
                 console.log(response.user.displayName)
-                
+                console.log(response.user.uid)
+
                 
                 this.user = {
                     name: response.user.displayName,
-                    email: response.user.email
+                    email: response.user.email,
+                    id: response.user.uid
                 }
                 
                 // after signing in, call toggle function to show logged user name
@@ -63,12 +66,14 @@ export const useUsersStore = defineStore('users', {
                 console.log(response)
                 console.log(response.user)
                 console.log(response.user.displayName)
+                console.log(response.user.uid)
                 
                 this.error = null
                 
                 this.user = {
                     name: response.user.displayName,
-                    email: response.user.email
+                    email: response.user.email,
+                    id: response.user.uid
                 }
                 
                 // after signing in, call toggle function to show logged user name
@@ -84,8 +89,6 @@ export const useUsersStore = defineStore('users', {
         
         async logOut() {
             console.log('LOGGING CURRENT USER OUT')
-            
-
             try {
                 // this method signs out the current user from FIREBASE
                 await projectAuth.signOut()
@@ -115,6 +118,11 @@ export const useUsersStore = defineStore('users', {
         toggleLogged() {
             console.log('isLogged TOGGLED')
             this.isLogged = !this.isLogged
+        },
+
+        //TODO: CREATE A METHOD TO ADD THE LAST FIVE SOCRES AND SHOW IF TOP FIVE
+        addScore(game, score) {
+            console.log(game, score);
         }
     }
 })
