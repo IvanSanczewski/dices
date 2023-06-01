@@ -119,12 +119,23 @@
 }
 
 /* 
-*********
-D I C E S
-*********
+***********
+M O B I L E
+***********
 */
 
-
+@media screen and (max-width: 600px){
+    .dice-type {
+        display: grid;
+        gap: 1em;
+    }
+    
+    .dice-type > * {
+        margin: 0;
+        width: 70%;
+        justify-self: center;
+    }
+  }
 
 
 
