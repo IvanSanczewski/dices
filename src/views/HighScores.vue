@@ -1,9 +1,9 @@
 <template>
   <h2>This is the HIGH SCORES page</h2>
   <div v-for="game in storeScores.gameHighScores" :key="game.game" class="high__score__games">
-    <p style="fontWeight: 900;  marginTop: 1rem">{{ game.game }}</p>
+    <p>{{ game.game }}</p>
     <div v-for="score in game.scores" :key="score.name">
-      <p style="color: black; fontWeight: 700">{{ score.name }} - {{ score.score }}</p>
+      <p>{{ score.name }} - {{ score.score }}</p>
     </div>
   </div>  
 </template>

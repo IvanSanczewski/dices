@@ -4,6 +4,7 @@
 @import '../CSS/home.css';
 @import '../CSS/dices.css';
 @import '../CSS/numbers.css';
+@import '../CSS/scores.css';
 
 * {
   box-sizing: border-box;
