@@ -5,18 +5,18 @@
     gap: 2em
 }
 
-.dices-title {
+/* .dices-title {
     
-}
+} */
 
 .dices-total {
     display: flex;
     flex-flow: column;
 }
 
-.dices-total__select {
+    /* .dices-total__select {
 
-}
+    } */
 
 .dice-type {
     display: flex;

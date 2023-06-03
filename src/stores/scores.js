@@ -50,8 +50,8 @@ export const useScoresStore = defineStore('scores', {
             console.log(this.gameHighScores)
         },
 
-        isHighscore(game, user, score) {
-            console.log(game, score, user)
+        isHighscore(game, name, id, score) {
+            console.log(game, name, id, score)
 
             const gameIndex = this.gameHighScores.findIndex((item) => item.game === game);
             console.log(gameIndex)
@@ -74,7 +74,7 @@ export const useScoresStore = defineStore('scores', {
                 //TODO: CHANGE TO PUT METHOD
                 this.gameHighScores[gameIndex].scores.pop()
                 //FIXME: READ UID FROM RESPONSE FETCH
-                this.gameHighScores[gameIndex].scores.push({name: user, score, uid})
+                this.gameHighScores[gameIndex].scores.push({name, id, score})
             } else if ( score === lowerHighscore  ) {
                 alert ('CONGRATULATIONS! YOU HAVE JUST SET A NEW HIGHSCORE!')
             }

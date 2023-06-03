@@ -105,11 +105,12 @@ export const useUsersStore = defineStore('users', {
 
         getUser() {
             projectAuth.onAuthStateChanged(currentUser => {
-                console.log('USER STATE CHANGE' ,currentUser)
+                console.log('USER STATE CHANGE', currentUser)
                 if (currentUser) {
                     console.log(`USER ${currentUser.displayName} IS LOGGED WITH THIS EMAIL: ${currentUser.email}`)
                     this.user.name = currentUser.displayName
                     this.user.email = currentUser.email
+                    this.user.id = currentUser.uid
                     this.toggleLogged()
                 }
             })
