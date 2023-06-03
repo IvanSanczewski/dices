@@ -1,4 +1,6 @@
-import { defineStore } from 'pinia'
+import { defineStore, useStore } from 'pinia'
+import { useScoresStore} from '../stores/scores.js'
+
 
 
 
@@ -97,6 +99,21 @@ export const useGamesStore = defineStore('games', {
             // return storeGames.games.map(game => game.link)
         // }
         
+        getHighScores() {
+            // const storeScores = useScoresStore()
+            const storeScores = useStore(useScoresStore)
+        
+
+            console.log(storeScores)
+            // console.log(storeScores.$state.gameHighScores)
+            console.log(storeScores.gameHighScores)
+            // console.log(storeScores.gameHighScores[0].scores[0].score)
+            // console.log(storeScores.gameHighScores[0].scores[0].score)
+            // console.log(storeScores.gameHighScores[0].scores[0].score)
+            // this.games[0].highScore = storeScores.gameHighScores[0].scores[0].score
+            // storeScores.gameHighScores[0].scores[0].score
+        }
+
     }
 
 })

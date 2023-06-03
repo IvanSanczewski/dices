@@ -40,7 +40,7 @@ export const useScoresStore = defineStore('scores', {
     },
 
     actions: {
-        async getHighScores () {
+        async fetchHighScores () {
             const response = await projectFirestore.collection('scores').get()
             let responseGame = response.docs.map(document => {
                 return { ...document.data()} 

@@ -12,5 +12,5 @@
 import { useScoresStore } from '@/stores/scores'
 
 const storeScores = useScoresStore()
-// storeScores.getHighScores()
+// storeScores.fetchHighScores()
 </script>
