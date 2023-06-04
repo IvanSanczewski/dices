@@ -29,7 +29,6 @@
 </template>
 
 <script setup>
-import { RouterLink } from 'vue-router'
 import { useGamesStore } from '@/stores/games.js'
 import { useScoresStore} from '@/stores/scores.js'
 // import { useUsersStore} from '@/stores/users.js'
@@ -39,6 +38,8 @@ const storeScores = useScoresStore()
 // const storeUsers = useUsersStore()
 
 
+console.log(storeGames.hola)
+storeGames.getHighScores(storeGames.hola)
 
 
 // storeGames.gamesLinks()

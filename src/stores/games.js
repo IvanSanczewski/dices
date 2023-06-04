@@ -1,8 +1,8 @@
-import { defineStore, useStore } from 'pinia'
+import { defineStore,  } from 'pinia'
 import { useScoresStore} from '../stores/scores.js'
 
 
-
+// import { useStore } from 'pinia'
 
 export const useGamesStore = defineStore('games', {
     state: () =>({
@@ -91,29 +91,24 @@ export const useGamesStore = defineStore('games', {
             }
         ]
     }),
-    computed: {
-    },
+  
+    
     actions: {
         // gamesLinks() {
             // console.log(this.games.map(game => game.link))
             // return storeGames.games.map(game => game.link)
         // }
-        
-        getHighScores() {
-            // const storeScores = useScoresStore()
-            const storeScores = useStore(useScoresStore)
-        
 
+        getHighScores(object) {
+            const storeScores = useScoresStore()     
             console.log(storeScores)
-            // console.log(storeScores.$state.gameHighScores)
-            console.log(storeScores.gameHighScores)
+            console.log(object)
             // console.log(storeScores.gameHighScores[0].scores[0].score)
-            // console.log(storeScores.gameHighScores[0].scores[0].score)
-            // console.log(storeScores.gameHighScores[0].scores[0].score)
-            // this.games[0].highScore = storeScores.gameHighScores[0].scores[0].score
-            // storeScores.gameHighScores[0].scores[0].score
         }
-
     }
-
 })
+//this.games[0].highScore = storeScores.gameHighScores[0].scores[0].score
+
+
+    
+

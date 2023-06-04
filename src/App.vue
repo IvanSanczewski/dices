@@ -1,5 +1,5 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 import { ref } from 'vue'
 import Navbar from '@/components/Navbar.vue'
 import NavbarIcons from '@/components/NavbarIcons.vue'
@@ -10,7 +10,7 @@ import { useGamesStore } from './stores/games.js'
 
 const storeUsers = useUsersStore()
 const storeScores = useScoresStore()
-const storeGames = useGamesStore()
+// const storeGames = useGamesStore()
 
 const mobile = ref(false)
 console.log(mobile.value)
@@ -22,7 +22,7 @@ toggleMobileMenu(mobile)
 
 storeUsers.getUser()
 storeScores.fetchHighScores()
-storeGames.getHighScores()
+
 
 
 </script>
@@ -32,18 +32,12 @@ storeGames.getHighScores()
   <header>
     <component :is="mobile ? NavbarIcons : Navbar"/>
   </header>
-<!-- 
-    <div v-if="!mobile">
-      <Navbar/>
-    </div>
-    <div v-else>
-      <NavbarIcons/>
-    </div> -->
 
   <main>
     <RouterView />
   </main>
+
   <footer>
     <Footer />
-</footer>
+  </footer>
 </template>

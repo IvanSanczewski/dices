@@ -1,12 +1,12 @@
 import { defineStore } from 'pinia'
 import { projectFirestore } from '../firebase/config'
-import router from '../router'
 
 
 export const useScoresStore = defineStore('scores', {
     state: () => ({
         // games
-        gameHighScores: []
+        gameHighScores: [],
+        hola: 'mundo'
     }),
 
 
