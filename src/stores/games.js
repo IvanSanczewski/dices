@@ -91,7 +91,9 @@ export const useGamesStore = defineStore('games', {
             }
         ]
     }),
-  
+    getters: {
+        //TODO: IMPLEMENT GETTER TO READ DATA FROM SCORES.JS
+    },
     
     actions: {
         // gamesLinks() {
@@ -99,9 +101,10 @@ export const useGamesStore = defineStore('games', {
             // return storeGames.games.map(game => game.link)
         // }
 
-        getHighScores(object) {
+        getHighScores(hola, object) {
             const storeScores = useScoresStore()     
-            console.log(storeScores)
+            console.log(storeScores.hola)
+            console.log(hola)
             console.log(object)
             // console.log(storeScores.gameHighScores[0].scores[0].score)
         }

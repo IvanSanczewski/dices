@@ -47,7 +47,8 @@ export const useScoresStore = defineStore('scores', {
             })
             console.log(responseGame)
             this.gameHighScores = responseGame[0].gameHighScores
-            console.log(this.gameHighScores)
+            // promise is solved after call for data in the state
+            console.log('NOW PRINTING GAMEHIGHSCORES',this.gameHighScores)
         },
 
         isHighscore(game, name, id, score) {

@@ -37,9 +37,12 @@ const storeGames = useGamesStore()
 const storeScores = useScoresStore()
 // const storeUsers = useUsersStore()
 
-
-console.log(storeGames.hola)
-storeGames.getHighScores(storeGames.hola)
+// when data is read, it already exists
+console.log(storeScores.hola)
+// when data is read, it is still a promise
+// FIXME: MAKE IT ASYNC AND WAIT UNTIL gameHighScores,length >0
+console.log(storeScores.gameHighScores)
+storeGames.getHighScores(storeScores.hola, storeScores.gameHighScores)
 
 
 // storeGames.gamesLinks()
