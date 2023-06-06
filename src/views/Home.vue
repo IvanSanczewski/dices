@@ -30,19 +30,11 @@
 
 <script setup>
 import { useGamesStore } from '@/stores/games.js'
-import { useScoresStore} from '@/stores/scores.js'
-// import { useUsersStore} from '@/stores/users.js'
+
+
 
 const storeGames = useGamesStore()
-const storeScores = useScoresStore()
-// const storeUsers = useUsersStore()
 
-// when data is read, it already exists
-console.log(storeScores.hola)
-// when data is read, it is still a promise
-// FIXME: MAKE IT ASYNC AND WAIT UNTIL gameHighScores,length >0
-console.log(storeScores.gameHighScores)
-storeGames.getHighScores(storeScores.hola, storeScores.gameHighScores)
 
 
 // storeGames.gamesLinks()
