@@ -14,15 +14,17 @@ export const useScoresStore = defineStore('scores', {
     getters: {
         // reads the original arrays of objects and sorts, therefore the array displayed in the template is already sorted
         dicesHighscoresOrdered: (state) => {
-            state.gameHighScores[0].scores.sort((a, z) => {
+            return state.gameHighScores[0].scores.sort((a, z) => {
                 console.log('NOW SORTING 1')
                 if (a.score > z.score) return -1
                 if (z.score > a.score) return 1
                 return 0
             })
         },
+        
+        
         numbersHighscoresOrdered: (state) => {
-            state.gameHighScores[1].scores.sort((a, z) => {
+            return state.gameHighScores[1].scores.sort((a, z) => {
                 console.log('NOW SORTING 2')
                 if (a.score > z.score) return -1
                 if (z.score > a.score) return 1
@@ -30,7 +32,7 @@ export const useScoresStore = defineStore('scores', {
             })
         },
         colorsHighscoresOrdered: (state) => {
-            state.gameHighScores[2].scores.sort((a, z) => {
+            return state.gameHighScores[2].scores.sort((a, z) => {
                 console.log('NOW SORTING 3')
                 if (a.score > z.score) return -1
                 if (z.score > a.score) return 1
