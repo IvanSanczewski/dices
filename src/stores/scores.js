@@ -1,46 +1,56 @@
 import { defineStore } from 'pinia'
 import { projectFirestore } from '../firebase/config'
+import { useGamesStore } from '@/stores/games.js'
 
 
 export const useScoresStore = defineStore('scores', {
     state: () => ({
         // games
-        gameHighScores: [],
-        hola: 'mundo'
+        gameHighScores: []
     }),
 
-
-    // CHECK UNDEFINED VALUES IN GETTERS, HOW DO THEY WORK IN VUE
     getters: {
         // reads the original arrays of objects and sorts, therefore the array displayed in the template is already sorted
         dicesHighscoresOrdered: (state) => {
-            return state.gameHighScores[0].scores.sort((a, z) => {
-                console.log('NOW SORTING 1')
-                if (a.score > z.score) return -1
-                if (z.score > a.score) return 1
-                return 0
-            })
+            const gameScores = state.gameHighScores[0]
+            if (gameScores && gameScores.scores) {
+                console.log('NOW SORTING DICES')
+                return state.gameHighScores[0].scores.sort((a, z) => {
+                    if (a.score > z.score) return -1
+                    if (z.score > a.score) return 1
+                    return 0
+                })
+            }
+            return []
         },
-        
-        
+                
         numbersHighscoresOrdered: (state) => {
-            return state.gameHighScores[1].scores.sort((a, z) => {
-                console.log('NOW SORTING 2')
-                if (a.score > z.score) return -1
-                if (z.score > a.score) return 1
-                return 0
-            })
+            const gameScores = state.gameHighScores[1]
+            if (gameScores && gameScores.scores) {
+                console.log('NOW SORTING NUMBERS')
+                return state.gameHighScores[1].scores.sort((a, z) => {
+                    if (a.score > z.score) return -1
+                    if (z.score > a.score) return 1
+                    return 0
+                })
+            }
+            return []
         },
+        
         colorsHighscoresOrdered: (state) => {
-            return state.gameHighScores[2].scores.sort((a, z) => {
-                console.log('NOW SORTING 3')
-                if (a.score > z.score) return -1
-                if (z.score > a.score) return 1
-                return 0
-            })
+            const gameScores = state.gameHighScores[2]
+            if (gameScores && gameScores.scores) {
+                console.log('NOW SORTING COLORS')
+                return state.gameHighScores[2].scores.sort((a, z) => {
+                    if (a.score > z.score) return -1
+                    if (z.score > a.score) return 1
+                    return 0
+                })
+            }
+            return []
         },
     },
-
+   
     actions: {
         async fetchHighScores () {
             const response = await projectFirestore.collection('scores').get()
@@ -51,6 +61,11 @@ export const useScoresStore = defineStore('scores', {
             this.gameHighScores = responseGame[0].gameHighScores
             // promise is solved after call for data in the state
             console.log('NOW PRINTING GAMEHIGHSCORES',this.gameHighScores)
+
+            const storeGames = useGamesStore()
+            console.log(this.getters.dicesHighscoresOrdered)
+            // storeGames.getHighScores(this.getters.dicesHighscoresOrdered[0].scores[0].name, this.getters.dicesHighscoresOrdered[0].scores[0].score)
+            // storeGames.getHighScores(this.gameHighScores[0].scores[0].name, this.gameHighScores[0].scores[0].score)
         },
 
         isHighscore(game, name, id, score) {

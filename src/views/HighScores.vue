@@ -12,5 +12,7 @@
 import { useScoresStore } from '@/stores/scores'
 
 const storeScores = useScoresStore()
+// fetchHighScores is perforemed on App load in order to have them available from the very beginning
 // storeScores.fetchHighScores()
+
 </script>

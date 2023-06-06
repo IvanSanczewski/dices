@@ -101,11 +101,9 @@ export const useGamesStore = defineStore('games', {
             // return storeGames.games.map(game => game.link)
         // }
 
-        getHighScores(hola, object) {
-            const storeScores = useScoresStore()     
-            console.log(storeScores.hola)
-            console.log(hola)
-            console.log(object)
+        getHighScores(user, score) {
+            // const storeScores = useScoresStore()     
+            console.log(user, score)
             // console.log(storeScores.gameHighScores[0].scores[0].score)
         }
     }
