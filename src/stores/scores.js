@@ -63,8 +63,11 @@ export const useScoresStore = defineStore('scores', {
             console.log('NOW PRINTING GAMEHIGHSCORES',this.gameHighScores)
 
             const storeGames = useGamesStore()
-            console.log(this.getters.dicesHighscoresOrdered)
+            // console.log(this.getters.dicesHighscoresOrdered)
             // storeGames.getHighScores(this.getters.dicesHighscoresOrdered[0].scores[0].name, this.getters.dicesHighscoresOrdered[0].scores[0].score)
+            
+            //FIXME: MAKE IT ASYNC SO IT PASSES THE PROPER ARGUMENTS ONCE THE GETTERS HAVE DONE THEIR JOB
+            storeGames.getHighScores(this.getters.dicesHighscoresOrdered[0].scores[0].name, this.getters.dicesHighscoresOrdered[0].scores[0].score)
             // storeGames.getHighScores(this.gameHighScores[0].scores[0].name, this.gameHighScores[0].scores[0].score)
         },
 
@@ -97,5 +100,32 @@ export const useScoresStore = defineStore('scores', {
                 alert ('CONGRATULATIONS! YOU HAVE JUST SET A NEW HIGHSCORE!')
             }
         }
-    },
+    }
 })
+
+
+
+// The error you're encountering is likely due to the asynchronous nature of the code. Since fetchHighScores is an async function, the execution continues before the data is fetched and the state is updated. As a result, when you try to access this.getters.dicesHighscoresOrdered immediately after updating the state, it's still undefined.
+
+// To fix this, you can make use of await to wait for the state update to complete before accessing the getter. Here's an updated version of the code:
+
+// javascript
+// Copy code
+// actions: {
+//   async fetchHighScores() {
+//     const response = await projectFirestore.collection('scores').get();
+//     let responseGame = response.docs.map((document) => {
+//       return { ...document.data() };
+//     });
+//     console.log(responseGame);
+//     this.gameHighScores = responseGame[0].gameHighScores;
+
+//     await this.$nextTick(); // Wait for Vue to update the state
+
+//     const dicesHighscoresOrdered = this.getters.dicesHighscoresOrdered;
+//     const storeGames = useGamesStore();
+//     console.log(dicesHighscoresOrdered);
+//     // storeGames.getHighScores(dicesHighscoresOrdered[0].scores[0].name, dicesHighscoresOrdered[0].scores[0].score);
+//   },
+// }
+// By using await this.$nextTick(), you allow Vue to update the state before proceeding with the next steps. This ensures that this.getters.dicesHighscoresOrdered will have the correct value when you access it.
