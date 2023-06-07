@@ -1,3 +1,8 @@
+h3 {
+    color: white
+}
+
 .high__score__games {
-    color: darkblue
+    color: darkblue;
+    font-weight: 500;
 }

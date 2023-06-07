@@ -103,6 +103,7 @@ export const useGamesStore = defineStore('games', {
         // }
 
         getHighScores(user, score) {
+            console.log('CATCHED HIGHSCORE')
             // const storeScores = useScoresStore()     
             console.log(user, score)
             this.games[0].user = user

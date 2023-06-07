@@ -22,6 +22,7 @@
             <p>{{ game.description }}</p>
             <input class="see-more-btn" type="checkbox">
             <h4>High Score: {{ game.highScore }} - {{ game.user }}</h4>
+            <h4>High Score: {{ game.highScore }} - {{ game.user }}</h4>
           </div>
         </div>
       </div>
@@ -34,7 +35,7 @@ import { useGamesStore } from '@/stores/games.js'
 
 
 const storeGames = useGamesStore()
-console.log('CATCHED HIGHSCORE')
+
 
 
 

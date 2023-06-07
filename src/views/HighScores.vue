@@ -1,7 +1,7 @@
 <template>
   <h2>This is the HIGH SCORES page</h2>
   <div v-for="game in storeScores.gameHighScores" :key="game.game" class="high__score__games">
-    <p>{{ game.game }}</p>
+    <h3>{{ game.game }}</h3>
     <div v-for="score in game.scores" :key="score.name">
       <p>{{ score.name }} - {{ score.score }}</p>
     </div>
