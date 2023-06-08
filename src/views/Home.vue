@@ -22,7 +22,7 @@
             <p>{{ game.description }}</p>
             <input class="see-more-btn" type="checkbox">
             <h4>High Score: {{ game.highScore }} - {{ game.user }}</h4>
-            <h4>High Score: {{ game.highScore }} - {{ game.user }}</h4>
+            <h4>High Score: {{ storeScores.dicesHighscoresOrdered[0].score }} - {{ storeScores.dicesHighscoresOrdered[0].name }} </h4>
           </div>
         </div>
       </div>
@@ -31,10 +31,12 @@
 
 <script setup>
 import { useGamesStore } from '@/stores/games.js'
+import { useScoresStore } from '@/stores/scores.js'
 
 
 
 const storeGames = useGamesStore()
+const storeScores = useScoresStore()
 
 
 
