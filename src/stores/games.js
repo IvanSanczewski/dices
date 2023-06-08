@@ -1,8 +1,6 @@
 import { defineStore,  } from 'pinia'
-import { useScoresStore} from '../stores/scores.js'
+// import { useScoresStore} from '../stores/scores.js'
 
-
-// import { useStore } from 'pinia'
 
 export const useGamesStore = defineStore('games', {
     state: () =>({
@@ -102,19 +100,19 @@ export const useGamesStore = defineStore('games', {
             // return storeGames.games.map(game => game.link)
         // }
 
+
+        // useful only if games array needs to be populated with user and highscore data from scores store
         getHighScores(user, score) {
             console.log('CATCHED HIGHSCORE')
             // const storeScores = useScoresStore()     
             console.log(user, score)
             this.games[0].user = user
             this.games[0].highScore = score
-            
 
-            // console.log(storeScores.gameHighScores[0].scores[0].score)
         }
     }
 })
-//this.games[0].highScore = storeScores.gameHighScores[0].scores[0].score
+
 
 
     

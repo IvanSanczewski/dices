@@ -21,8 +21,13 @@
             <h3>{{ game.name }}</h3>
             <p>{{ game.description }}</p>
             <input class="see-more-btn" type="checkbox">
-            <h4>High Score: {{ game.highScore }} - {{ game.user }}</h4>
-            <h4>High Score: {{ storeScores.dicesHighscoresOrdered[0].score }} - {{ storeScores.dicesHighscoresOrdered[0].name }} </h4>
+            
+            TODO: USE THE ORDERED GETTER ACCORDING TO THE GAME
+            <h4 v-if="storeScores.dicesHighscoresOrdered.length > 0">
+              HIGH SCORE:
+              {{ storeScores.dicesHighscoresOrdered[0].score }} -
+              {{ storeScores.dicesHighscoresOrdered[0].name }} 
+            </h4>
           </div>
         </div>
       </div>

@@ -53,6 +53,17 @@ export const useScoresStore = defineStore('scores', {
     },
    
     actions: {
+
+         async fetchHighScores() {
+            const response = await projectFirestore.collection('scores').get();
+            let responseGame = response.docs.map((document) => {
+              return { ...document.data() };
+            });
+            console.log(responseGame);
+            this.gameHighScores = responseGame[0].gameHighScores
+        },
+
+
         // async fetchHighScores () {
         //     const response = await projectFirestore.collection('scores').get()
         //     let responseGame = response.docs.map(document => {
@@ -72,25 +83,7 @@ export const useScoresStore = defineStore('scores', {
         //     // storeGames.getHighScores(this.gameHighScores[0].scores[0].name, this.gameHighScores[0].scores[0].score)
         // },
 
-        async fetchHighScores() {
-            const response = await projectFirestore.collection('scores').get();
-            let responseGame = response.docs.map((document) => {
-              return { ...document.data() };
-            });
-            console.log(responseGame);
-            this.gameHighScores = responseGame[0].gameHighScores;
-            
-
-            this.$patch({})
-            await nextTick()
-
-                
-            const dicesHighscoresOrdered = this.getters.dicesHighscoresOrdered;
-            const storeGames = useGamesStore()
-            //console.log(dicesHighscoresOrdered);
-            storeGames.getHighScores(dicesHighscoresOrdered[0].scores[0].name, dicesHighscoresOrdered[0].scores[0].score);
-            // Wait for Vue to update the state
-        },
+       
 
 
 
