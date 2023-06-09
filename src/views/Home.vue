@@ -22,7 +22,7 @@
             <p>{{ game.description }}</p>
             <input class="see-more-btn" type="checkbox">
             
-            TODO: USE THE ORDERED GETTER ACCORDING TO THE GAME
+            <!-- TODO: USE THE ORDERED GETTER ACCORDING TO THE GAME -->
             <h4 v-if="storeScores.dicesHighscoresOrdered.length > 0">
               HIGH SCORE:
               {{ storeScores.dicesHighscoresOrdered[0].score }} -
@@ -37,7 +37,6 @@
 <script setup>
 import { useGamesStore } from '@/stores/games.js'
 import { useScoresStore } from '@/stores/scores.js'
-
 
 
 const storeGames = useGamesStore()
