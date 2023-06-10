@@ -1,11 +1,19 @@
 h3 {
-    color: white
+    margin-top: 2rem;
+    margin-bottom: .5rem;
+    
+    text-transform: capitalize;
+
 }
 
 .high__score__games {   
-    color: darkblue;
     font-weight: 500;
     
     display: grid;
-    place-items: center
+    place-items: center;
+    gap: .25rem
+}
+
+.high__score__games > * {   
+    color: darkgreen
 }
