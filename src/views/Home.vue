@@ -23,11 +23,11 @@
             <input class="see-more-btn" type="checkbox">
             
             <!-- TODO: USE THE ORDERED GETTER ACCORDING TO THE GAME -->
-            <h4 v-if="storeScores.dicesHighscoresOrdered.length > 0">
-              HIGH SCORE:
-              {{ storeScores.dicesHighscoresOrdered[0].score }} -
-              {{ storeScores.dicesHighscoresOrdered[0].name }} 
-            </h4>
+            <h4 v-if="storeScores.dicesHighscoresOrdered.length > 0">HIGH SCORE</h4>
+              <h3 class="card--content__game--highscore">
+                {{ storeScores.dicesHighscoresOrdered[0].score }} -
+                {{ storeScores.dicesHighscoresOrdered[0].name }} 
+              </h3>  
           </div>
         </div>
       </div>

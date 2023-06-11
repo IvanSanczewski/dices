@@ -85,6 +85,14 @@
     text-align: center;
 }
 
+.card--content__game--highscore {
+    margin-bottom: 2rem;
+
+    color:rgba(34, 34, 34, 0.874);
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
 .card-content>p {
     margin: 0 .8rem;
     font-weight: 100;
@@ -147,6 +155,5 @@
 }
 
 .card-content>h4 {
-    margin-bottom: 2rem;
     text-align: center;
 }
