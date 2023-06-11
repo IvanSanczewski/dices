@@ -2,7 +2,10 @@ h3 {
     color: white
 }
 
-.high__score__games {
+.high__score__games {   
     color: darkblue;
     font-weight: 500;
+    
+    display: grid;
+    place-items: center
 }
