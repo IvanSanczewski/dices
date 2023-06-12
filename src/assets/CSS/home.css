@@ -152,6 +152,7 @@
 
 .card-content>p:has(+ .see-more-btn:checked) {
     max-height: none;
+    font-weight: 400;
 }
 
 .card-content>h4 {
