@@ -1,12 +1,5 @@
-h3 {
-    margin-top: 2rem;
-    margin-bottom: .5rem;
-    
-    text-transform: capitalize;
-
-}
-
 .high__score__games {   
+    color: rgb(204, 204, 204);
     font-weight: 500;
     
     display: grid;
@@ -14,6 +7,15 @@ h3 {
     gap: .25rem
 }
 
-.high__score__games > * {   
-    color: darkgreen
+
+.high__score__games h3 {
+    margin-top: 2rem;
+    margin-bottom: .5rem;
+    
+    color: white;
+    font-weight: 700;
+    text-transform: capitalize; 
 }
+
+
+
