@@ -76,24 +76,36 @@
 
 
 .card-content {
+    padding: 1.5rem;
+
     display: flex;
     flex-flow: column nowrap;
 }
 
-.card-content>h3 {
+.card-content > h3 {
     margin: 1rem;
     text-align: center;
 }
 
-.card--content__game--highscore {
-    margin-bottom: 2rem;
+.card-content > h4 {
+    letter-spacing: .15rem
+}
+.card--content__game--name {
+    color: rgb(232, 226, 49);
+    letter-spacing: .25rem
 
-    color:rgba(34, 34, 34, 0.874);
-    font-size: 1.5rem;
-    font-weight: 900;
 }
 
-.card-content>p {
+.card--content__game--highscore {
+    margin-bottom: 2rem;
+    
+    color:rgba(34, 34, 34, 0.745);
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: .35rem;
+}
+
+.card-content > p {
     margin: 0 .8rem;
     font-weight: 100;
     --max-lines: 3;

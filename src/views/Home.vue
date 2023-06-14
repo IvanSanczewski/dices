@@ -3,7 +3,6 @@
     <div class="container-games">
       <div class="games-title">
         <h1>MOUNTAIN GAMES</h1>
-        <h2>Choose a game</h2>
       </div>
 
       <div class="games-display">
@@ -18,16 +17,16 @@
             </a>
           </div>
           <div class="card-content">
-            <h3>{{ game.name }}</h3>
+            <h3 class="card--content__game--name">{{ game.name }}</h3>
             <p>{{ game.description }}</p>
             <input class="see-more-btn" type="checkbox">
             
             <!-- TODO: USE THE ORDERED GETTER ACCORDING TO THE GAME -->
-            <h4 v-if="storeScores.dicesHighscoresOrdered.length > 0">HIGH SCORE</h4>
+            <h4 v-if="storeScores.dicesHighscoresOrdered.length > 0">HIGH SCORE:</h4>
               <h3 class="card--content__game--highscore">
                 {{ storeScores.dicesHighscoresOrdered[0].score }} -
-                {{ storeScores.dicesHighscoresOrdered[0].name }} 
-              </h3>  
+                {{ storeScores.dicesHighscoresOrdered[0].name }}
+              </h3>
           </div>
         </div>
       </div>
