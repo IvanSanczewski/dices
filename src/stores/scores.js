@@ -1,7 +1,5 @@
 import { defineStore } from 'pinia'
-import { nextTick } from 'vue';
 import { projectFirestore } from '../firebase/config'
-import { useGamesStore } from '@/stores/games.js'
 
 
 export const useScoresStore = defineStore('scores', {
@@ -54,43 +52,19 @@ export const useScoresStore = defineStore('scores', {
    
     actions: {
 
-         async fetchHighScores() {
-            const response = await projectFirestore.collection('scores').get();
+        async fetchHighScores() {
+            const response = await projectFirestore.collection('scores').get()
             let responseGame = response.docs.map((document) => {
-              return { ...document.data() };
-            });
+              return { ...document.data() }
+            })
             console.log(responseGame);
             this.gameHighScores = responseGame[0].gameHighScores
         },
 
-
-        // async fetchHighScores () {
-        //     const response = await projectFirestore.collection('scores').get()
-        //     let responseGame = response.docs.map(document => {
-        //         return { ...document.data()} 
-        //     })
-        //     console.log(responseGame)
-        //     this.gameHighScores = responseGame[0].gameHighScores
-        //     // promise is solved after call for data in the state
-        //     console.log('NOW PRINTING GAMEHIGHSCORES',this.gameHighScores)
-
-        //     const storeGames = useGamesStore()
-        //     // console.log(this.getters.dicesHighscoresOrdered)
-        //     // storeGames.getHighScores(this.getters.dicesHighscoresOrdered[0].scores[0].name, this.getters.dicesHighscoresOrdered[0].scores[0].score)
-            
-        //     //FIXME: MAKE IT ASYNC SO IT PASSES THE PROPER ARGUMENTS ONCE THE GETTERS HAVE DONE THEIR JOB
-        //     storeGames.getHighScores(this.getters.dicesHighscoresOrdered[0].scores[0].name, this.getters.dicesHighscoresOrdered[0].scores[0].score)
-        //     // storeGames.getHighScores(this.gameHighScores[0].scores[0].name, this.gameHighScores[0].scores[0].score)
-        // },
-
-       
-
-
-
         isHighscore(game, name, id, score) {
             console.log(game, name, id, score)
 
-            const gameIndex = this.gameHighScores.findIndex((item) => item.game === game);
+            const gameIndex = this.gameHighScores.findIndex((item) => item.game === game)
             console.log(gameIndex)
             
             if (gameIndex === -1) {
@@ -108,25 +82,25 @@ export const useScoresStore = defineStore('scores', {
             //TODO: KEEP AS MANY HIGHSCORES AS NEEDED IF THERE ARE TIED RESULTS
             if (score > lowerHighscore) {
                 alert ('CONGRATULATIONS! YOU HAVE JUST SET A NEW HIGHSCORE!')
+                
                 //TODO: CHANGE TO PUT METHOD
-                this.gameHighScores[gameIndex].scores.pop()
                 //FIXME: READ UID FROM RESPONSE FETCH
+                this.gameHighScores[gameIndex].scores.pop()
                 this.gameHighScores[gameIndex].scores.push({name, id, score})
+
+                this.updateHighScores()
             } else if ( score === lowerHighscore  ) {
                 alert ('CONGRATULATIONS! YOU HAVE JUST SET A NEW HIGHSCORE!')
             }
+        },
+
+        async updateHighScores () {
+            // const newHighScore = await projectFirestore.collection('scores')
+            // .add(this.gameHighScores[])
+            console.log(this.gameHighScores[0])
+
+            await projectFirestore.collection('scores').add(this.gameHighScores[0])
         }
+
     }
 })
-
-
-
-// The error you're encountering is likely due to the asynchronous nature of the code. Since fetchHighScores is an async function, the execution continues before the data is fetched and the 
-// state is updated. As a result, when you try to access this.getters.dicesHighscoresOrdered immediately after updating the state, it's still undefined.
-// To fix this, you can make use of await to wait for the state update to complete before accessing the getter. Here's an updated version of the code:
-
-
-actions: {
-  
-}
-// By using await this.$nextTick(), you allow Vue to update the state before proceeding with the next steps. This ensures that this.getters.dicesHighscoresOrdered will have the correct value when you access it.
