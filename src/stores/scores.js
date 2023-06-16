@@ -11,7 +11,7 @@ export const useScoresStore = defineStore('scores', {
     getters: {
         // reads the original arrays of objects and sorts, therefore the array displayed in the template is already sorted
         dicesHighscoresOrdered: (state) => {
-            const gameScores = state.gameHighScores[0]
+            const gameScores = state.gameHighScores[2]
             if (gameScores?.scores) {
                 console.log('NOW SORTING DICES')
                 return state.gameHighScores[0].scores.sort((a, z) => {
@@ -37,7 +37,7 @@ export const useScoresStore = defineStore('scores', {
         },
         
         colorsHighscoresOrdered: (state) => {
-            const gameScores = state.gameHighScores[2]
+            const gameScores = state.gameHighScores[0]
             if (gameScores && gameScores.scores) {
                 console.log('NOW SORTING COLORS')
                 return state.gameHighScores[2].scores.sort((a, z) => {
@@ -58,7 +58,7 @@ export const useScoresStore = defineStore('scores', {
               return { ...document.data() }
             })
             console.log(responseGame);
-            this.gameHighScores = responseGame[0].gameHighScores
+            this.gameHighScores = responseGame
         },
 
         isHighscore(game, name, id, score) {
@@ -88,7 +88,7 @@ export const useScoresStore = defineStore('scores', {
                 this.gameHighScores[gameIndex].scores.pop()
                 this.gameHighScores[gameIndex].scores.push({name, id, score})
 
-                this.updateHighScores()
+                // this.updateHighScores()
             } else if ( score === lowerHighscore  ) {
                 alert ('CONGRATULATIONS! YOU HAVE JUST SET A NEW HIGHSCORE!')
             }
