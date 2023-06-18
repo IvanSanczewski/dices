@@ -7,7 +7,7 @@ export const useScoresStore = defineStore('scores', {
         // games
         gameHighScores: []
     }),
-
+    
     getters: {
         // reads the original arrays of objects and sorts, therefore the array displayed in the template is already sorted
         dicesHighscoresOrdered: (state) => {
@@ -57,8 +57,8 @@ export const useScoresStore = defineStore('scores', {
             let responseGame = response.docs.map((document) => {
               return { ...document.data() }
             })
-            console.log(responseGame);
             this.gameHighScores = responseGame
+            console.log('ARRAY POPULATED', responseGame)
         },
 
         isHighscore(game, name, id, score) {

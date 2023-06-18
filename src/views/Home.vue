@@ -6,12 +6,12 @@
       </div>
 
       <div class="games-display">
-        <div v-for="game in storeGames.games" :key="game.id" class="card">
+        <div v-for="game, index in storeGames.games" :key="game.id" class="card">
           <div class="card-img">
             <!-- <a href=`${game.link}`> -->
-            <!-- <a href="{{ game }}"> -->
-
-            <!-- <a :href="game.id - 1"> -->
+              <!-- <a href="{{ game }}"> -->
+                
+                <!-- <a :href="game.id - 1"> -->
             <a :href="game.link">
               <img :src="`src/assets/images/${game.image}.jpg`" alt="photo">
             </a>
@@ -23,11 +23,13 @@
             
             <!-- TODO: USE THE ORDERED GETTER ACCORDING TO THE GAME -->
             <!-- <h4 v-if="storeScores.dicesHighscoresOrdered.length > 0">HIGH SCORE:</h4> -->
-            <h4 v-if="storeScores.gameHighScores.length > 0">HIGH SCORE:</h4>
-              <h3 class="card--content__game--highscore">
-                {{ storeScores.dicesHighscoresOrdered[0].score }} -
-                {{ storeScores.dicesHighscoresOrdered[0].name }}
-              </h3>
+            <h4>HIGH SCORE:</h4>
+            <h3 v-if="storeScores.gameHighScores.length > 0" class="card--content__game--highscore">
+              <!-- {{ storeScores.dicesHighscoresOrdered[0].score }} -
+              {{ storeScores.dicesHighscoresOrdered[0].name }} -->
+              {{ storeScores.gameHighScores[index]}}
+              <!-- {{ storeScores.gameHighScores[index].scores[0] }} -->
+            </h3>
           </div>
         </div>
       </div>
