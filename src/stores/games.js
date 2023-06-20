@@ -7,7 +7,7 @@ export const useGamesStore = defineStore('games', {
         // games
         games:[
             {
-                name: 'SUM DICES',
+                name: 'DICES',
                 link: '/diceSum',
                 image: 'dices',
                 // user: null,
@@ -92,6 +92,13 @@ export const useGamesStore = defineStore('games', {
     }),
     getters: {
         //TODO: IMPLEMENT GETTER TO READ DATA FROM SCORES.JS
+        gamesSorted: (state) => {
+            return state.games.sort((a,z) => {
+                if (a.name > z.name) return 1
+                if (z.name > a.name) return -1
+                return 0
+            })
+        }
     },
     
     actions: {
