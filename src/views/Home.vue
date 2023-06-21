@@ -25,7 +25,7 @@
             <!-- TODO: USE THE ORDERED GETTER ACCORDING TO THE GAME -->
             <!-- <h4 v-if="storeScores.dicesHighscoresOrdered.length > 0">HIGH SCORE:</h4> -->
             <h4>HIGH SCORE:</h4>
-            <h3 v-if="storeScores.gameHighScores.length > 0" class="card--content__game--highscore">
+            <h3 v-if="storeScores.gameHighScores !== null" class="card--content__game--highscore">
                             
               {{ storeScores.gameHighScores[index].scores[0].name}} -
               {{ storeScores.gameHighScores[index].scores[0].score}} 

@@ -5,16 +5,16 @@ import { projectFirestore } from '../firebase/config'
 export const useScoresStore = defineStore('scores', {
     state: () => ({
         // games
-        gameHighScores: []
+        gameHighScores: null
+        // gameHighScores: []
     }),
     
     getters: {
         // reads the original arrays of objects and sorts, therefore the array displayed in the template is already sorted
         dicesHighscoresOrdered: (state) => {
-            const gameScores = state.gameHighScores[2]
-            if (gameScores?.scores) {
+            if (state.gameHighScores) {
                 console.log('NOW SORTING DICES')
-                return state.gameHighScores[0].scores.sort((a, z) => {
+                return state.gameHighScores[3].scores.sort((a, z) => {
                     if (a.score > z.score) return -1
                     if (z.score > a.score) return 1
                     return 0
@@ -24,10 +24,9 @@ export const useScoresStore = defineStore('scores', {
         },
                 
         numbersHighscoresOrdered: (state) => {
-            const gameScores = state.gameHighScores[1]
-            if (gameScores && gameScores.scores) {
+            if (state.gameHighScores) {
                 console.log('NOW SORTING NUMBERS')
-                return state.gameHighScores[1].scores.sort((a, z) => {
+                return state.gameHighScores[5].scores.sort((a, z) => {
                     if (a.score > z.score) return -1
                     if (z.score > a.score) return 1
                     return 0
@@ -36,11 +35,10 @@ export const useScoresStore = defineStore('scores', {
             return []
         },
         
-        colorsHighscoresOrdered: (state) => {
-            const gameScores = state.gameHighScores[0]
-            if (gameScores && gameScores.scores) {
-                console.log('NOW SORTING COLORS')
-                return state.gameHighScores[2].scores.sort((a, z) => {
+       coloursHighscoresOrdered: (state) => {
+            if (state.gameHighScores) {
+                console.log('NOW SORTING COLOURS')
+                return state.gameHighScores[0].scores.sort((a, z) => {
                     if (a.score > z.score) return -1
                     if (z.score > a.score) return 1
                     return 0
