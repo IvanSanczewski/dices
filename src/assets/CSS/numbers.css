@@ -44,9 +44,11 @@ sup {
     cursor: pointer;
     
     display: grid;
+    background-color: blueviolet;
 }
 
 .cell--content {
     justify-self: center;    
     align-self: center;  
+
 }
