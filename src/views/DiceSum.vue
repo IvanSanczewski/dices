@@ -85,7 +85,8 @@
         <!-- FIXME: PLAYS SHOULD APPEAR ONLY WHEN totalDices & dices.set ARE NOT UNDEFINED -->
         <div class="plays--results">
             <div class="dice--play" v-for="play, index in storeDices.dices.plays" :key="play.index">
-                Play {{ index + 1 }} :{{ play.join(' + ') }} =
+                {{ play.join(' + ') }} =
+                <!-- Play {{ index + 1 }} :{{ play.join(' + ') }} = -->
             
                     <input @keyup.enter="
                         storeDices.answerVsResult(storeDices.userPlay.userSum[index], storeDices.dices.playsTotal[index], index),
