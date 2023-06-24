@@ -102,12 +102,26 @@
 .plays--results {
     display: flex;
     flex-direction: column;
-    gap: .5rem
+    
+    gap: 1rem
 }
 
 .dice--play {
+    /* TODO: USE A VAR TO ADJUST THE WIDTH ACCORDING TO THE DICE SET */
+    width: 50%;
+
+    margin: 0 auto;
     display: flex;
-    gap: 1.5rem
+    justify-content: space-between;
+    gap: 1rem;
+
+    font-size: 2.5rem;
+}
+
+.user-answer {
+    font-size: 2.5rem;
+    width: 105px;
+
 }
 
 .dice--play__correct {
