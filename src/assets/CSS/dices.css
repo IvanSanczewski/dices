@@ -108,14 +108,14 @@
 
 .dice--play {
     /* TODO: USE A VAR TO ADJUST THE WIDTH ACCORDING TO THE DICE SET */
-    width: 50%;
+    width: 80%;
 
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     gap: 1rem;
 
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
 .user-answer {
