@@ -109,6 +109,7 @@
 .dice--play {
     /* TODO: USE A VAR TO ADJUST THE WIDTH ACCORDING TO THE DICE SET */
     width: 80%;
+    width: calc(100% - var(--total--dices, 0)%);
 
     margin: 0 auto;
     display: flex;
