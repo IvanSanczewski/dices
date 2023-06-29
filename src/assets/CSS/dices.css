@@ -1,6 +1,7 @@
 .container-dices {
     display: flex;
     flex-flow: column wrap;
+    align-items: center;
     padding: 1em;
     gap: 2em
 }
