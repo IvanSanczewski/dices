@@ -8,7 +8,7 @@
         </div>
 
         <div class="dices-total">
-            How many dices do you want to use?
+            <p>How many dices do you want to use?</p>
             <div class="dices-total__select">
                 <button class="dices-btn" @click="storeDices.dicesCount(6)">Six</button>
                 <button class="dices-btn" @click="storeDices.dicesCount(10)">Ten</button>

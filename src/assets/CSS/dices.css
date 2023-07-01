@@ -6,18 +6,19 @@
     gap: 2em
 }
 
-/* .dices-title {
-    
-} */
-
-.dices-total {
-    display: flex;
-    flex-flow: column;
+.dices-title,.dices-total {
+    text-align: center;
 }
 
-    /* .dices-total__select {
+/* .dices-total {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+} */
 
-    } */
+/* .dices-total__select {
+
+} */
 
 .dice-type {
     display: flex;
