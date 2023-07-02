@@ -3,7 +3,8 @@ sup {
 }
 
 .numbers-game {
-    color: #153515
+    color: #153515;
+    text-align: center;
 }
 
 .numbers-btn {
