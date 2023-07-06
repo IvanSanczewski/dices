@@ -132,10 +132,14 @@
     padding: .5em;
     border-radius: .3em;
     cursor: pointer;
-    width: 35%;
+    width: 45%;
     margin: 1rem 0 2rem 0;
     align-self: center;
     text-align: center;
+
+    font-family: 'Press Start 2P', cursive;
+    font-size: .65rem;
+    font-weight: 400;
 }
 
 .see-more-btn:hover {
