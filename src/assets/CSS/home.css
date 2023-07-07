@@ -92,18 +92,11 @@
 }
 .card--content__game--name {
     color: rgb(232, 226, 49);
-    letter-spacing: .25rem
-
-}
-
-.card--content__game--highscore {
-    margin-bottom: 2rem;
-    
-    color:rgb(117, 25, 73);
-    font-size: 1rem;
     font-family: 'Press Start 2P', cursive;
     font-weight: 900;
-    letter-spacing: .35rem;
+
+    letter-spacing: .25rem
+
 }
 
 .card-content > p {
@@ -117,6 +110,9 @@
 
     overflow: hidden;
     position: relative;
+
+    font-family: 'Press Start 2P', cursive;
+    font-size: .5rem;
 }
 
 .card-content>p::before{
@@ -127,6 +123,7 @@
     bottom: 0;
     pointer-events: none;
     /* background: linear-gradient(to bottom, transparent, white); */
+
 }
 
 .see-more-btn {
@@ -170,4 +167,16 @@
 
 .card-content > h4 {
     text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    font-size: .8rem;
+}
+
+.card--content__game--highscore {
+    margin-bottom: 2rem;
+    
+    color:rgb(117, 25, 73);
+    font-size: 1rem;
+    font-family: 'Press Start 2P', cursive;
+    font-weight: 900;
+    letter-spacing: .35rem;
 }
