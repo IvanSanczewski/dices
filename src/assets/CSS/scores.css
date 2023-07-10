@@ -1,3 +1,9 @@
+.high__score--title {
+    margin: 1em;
+    font-family: 'Press Start 2P', cursive;
+    font-weight: 900;
+
+}   
 .high__score__games {   
     color: rgb(204, 204, 204);
     font-family: 'Press Start 2P', cursive;
