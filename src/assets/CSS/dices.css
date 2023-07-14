@@ -1,4 +1,6 @@
 .container-dices {
+    font-family: 'Press Start 2P', cursive;
+
     display: flex;
     flex-flow: column wrap;
     align-items: center;
