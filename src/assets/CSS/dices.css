@@ -34,6 +34,8 @@
     margin: 1.5em;
     padding: .5em 1.5em;
 
+    font-family: 'Press Start 2P', cursive;
+
     border: 2px solid white;
     border-radius: .3em;
 
@@ -223,4 +225,3 @@ M O B I L E
 .dices-score {
     grid-area: score;
 } */
-
