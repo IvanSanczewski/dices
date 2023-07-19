@@ -2,7 +2,13 @@ sup {
     font-size: .6rem;
 }
 
+.game__title {
+    margin: 1.5rem;
+    font-weight: 900
+}
+
 .numbers-game {
+    font-family: 'Press Start 2P', cursive;
     color: #153515;
     text-align: center;
 }

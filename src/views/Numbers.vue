@@ -1,7 +1,7 @@
 <template>
     <div class="numbers-game">
         <div class="container">
-            <h1>NUMBERS</h1>
+            <h1 class="game__title">NUMBERS</h1>
         </div>
         <div class="choose-level">
             <h2>How many squares you want to play?</h2>
