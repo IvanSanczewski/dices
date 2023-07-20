@@ -13,6 +13,11 @@ sup {
     text-align: center;
 }
 
+.game__choice{
+    font-size: 1em;
+    font-weight: 200;
+}
+
 .numbers-btn {
     display: inline-block;
     

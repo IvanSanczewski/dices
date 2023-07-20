@@ -4,7 +4,7 @@
             <h1 class="game__title">NUMBERS</h1>
         </div>
         <div class="choose-level">
-            <h2>How many squares you want to play?</h2>
+            <h2 class="game__choice">How many squares do you want to play?</h2>
                 <button class="numbers-btn" @click="storeNumbers.setSquare(3)">3<sup>2</sup></button>
                 <button class="numbers-btn" @click="storeNumbers.setSquare(5)">5<sup>2</sup></button>
                 <button class="numbers-btn" @click="storeNumbers.setSquare(7)">7<sup>2</sup></button>
