@@ -4,11 +4,11 @@
         
         <div class="dices-title">
             <h1>This is the SUM DICES GAME</h1>
-            <h3>Prepare your dice set, roll'em and sum up!!</h3>
+            <h3 class="game__choice">Prepare your dice set, roll'em and sum up!!</h3>
         </div>
 
         <div class="dices-total">
-            <p>How many dices do you want to use?</p>
+            <p class="game__choice">How many dices do you want to use?</p>
             <div class="dices-total__select">
                 <button class="dices-btn" @click="storeDices.dicesCount(6)">Six</button>
                 <button class="dices-btn" @click="storeDices.dicesCount(10)">Ten</button>
